@@ -47,7 +47,7 @@ body::before{
 
 text-align:center;
 width:420px;
-
+animation:fade 1.5s ease;
 }
 
 .logo{
@@ -70,7 +70,7 @@ h1{
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:48px;
+font-size:52px;
 
 font-weight:600;
 
@@ -78,7 +78,10 @@ letter-spacing:2px;
 
 color:var(--text);
 
-margin-bottom:45px;
+margin-bottom:42px;
+
+text-shadow:
+  0 2px 10px rgba(0,0,0.35);
 
 }
 
@@ -103,7 +106,16 @@ height:100%;
 
 width:0%;
 
-background:var(--gold);
+background:linear-gradient(
+  90deg,
+  #B89255
+  #C9A86A
+  #E3C78D
+  );
+
+box-shadow:
+  0 0 10px rgba(201,168,106,.25),
+  0 0 20px rgba(201,168,106,12);
 
 border-radius:30px;
 
@@ -119,31 +131,27 @@ font-size:15px;
 
 color:var(--muted);
 
-min-height:25px;
+min-height:30px;
 
-letter-spacing:.5px;
+letter-spacing:1px;
 
-opacity:.9;
+line-height:1.8;
 
-transition:.4s;
+opacity:.85;
+
+transition:.5s;
 
 }
 
-@keyframes pulse{
+@keyframes fadeIn{
 
-0%{
-opacity:.4;
-transform:scale(1);
+from{
+opacity:0;
+transform:translateY(10px);
 }
 
-50%{
+to{
 opacity:1;
-transform:scale(1.15);
+transform:translateY(0);
 }
-
-100%{
-opacity:.4;
-transform:scale(1);
-}
-
 }
