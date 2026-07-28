@@ -45,7 +45,6 @@ function showFinished(){
                         loadingText.innerHTML =
                                 `<div class="finished">
                                         <p>Archive restored.<br>One memory remains unopened.</p>
-                                        <button id="beginBtn">Ready to unfold?</button>
                                 </div>`;
                         loadingText.style.opacity=1;
         setTimeout(()=>{
@@ -57,6 +56,7 @@ document.getElementById("beginBtn").addEventListener("click",()=>{
         alert("Next page coming soon")
 });
                 },1000);
+},400);
 }
 updateLoader();
 
