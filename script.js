@@ -40,35 +40,33 @@ setTimeout(updateLoader,100);
 }
 }        
 function showFinished(){
-        loadingText.style.opacity=0;
-                setTimeout(()=>{
-                        loadingText.innerHTML =
-                                `<div class="finished">
-                                        <p>Archive restored.<br>One memory remains unopened.</p>
-                                </div>`;
-                        loadingText.style.opacity=1;
-        setTimeout(()=>{
-                loadingText.innerHTML +=`
-                        <button id="beginBtn">Ready to unfold? ➡️</button>
-                `;
 
-document.getElementById("beginBtn").addEventListener("click",()=>{
-        alert("Next page coming soon")
-});
-                },1000);
-},400);
+    loadingText.style.opacity = 0;
+
+    setTimeout(() => {
+
+        loadingText.innerHTML = `
+            <div class="finished">
+                <p>Archive restored.<br>Except one memory</p>
+            </div>
+        `;
+
+        loadingText.style.opacity = 1;
+
+        // Wait another second before showing the button
+        setTimeout(() => {
+
+            loadingText.innerHTML += `
+                <button id="beginBtn" class="fadeBtn">Ready to unfold? ➜</button>
+            `;
+
+            document.getElementById("beginBtn").addEventListener("click", () => {
+                alert("Next page coming soon");
+            });
+
+        }, 1000);
+
+    }, 400);
+
 }
 updateLoader();
-
-
-
-
-
-
-
-
-
-
-
-
-        
