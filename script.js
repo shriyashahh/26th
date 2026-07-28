@@ -11,6 +11,7 @@ const loadingMessages = [
 
 let progress = 0;
 let index = 0;
+
 const progressBar = 
 document.getElementById("progressBar");
 const loadingText = document.getElementById("loadingText");
@@ -28,16 +29,31 @@ loadingText.style.opacity=1;
 index++;
 },250);
 }
+
+if(index === loadingMessages.length && progress >=91){
+        progress = 101;
+        setTimeout(showFinished,3000);
+        return;
+}
 progress++;
 setTimeout(updateLoader,100);
 }
-else{
-loadingText.innerHTML="Archive restored.";
-}
-}
-updateLoader()
+}        
+function showFinished(){
+        loadingText.style.opacity=0;
+                setTimeout(()=>{
+                        loadingText.innerHTML ='<div class="finished">
+                                <p>Archive restored
+                                One memory was left unopened.</p>
+                                <button id="beginBtn">Begin</button></div>';
+                        loadingText.style.opacity=1;
 
-
+document.getEngagedById("beginBtn").addEventListener("click",()=>{
+        alert("Next page coming soon")
+});
+                },400);
+}
+updateLoader();
 
 
 
