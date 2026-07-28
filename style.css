@@ -12,8 +12,8 @@ body{
   disply:flex;
   justify-content:center;
   align-items:center;
-
   height:100vh;
+  text-align:center;
 }
 
 .loader{
@@ -39,9 +39,9 @@ p{
   overflow:hidden;
 }
 
-#progressBrar{
+#progressBar{
   width:0%;
   height:100%;
   background:#FFD700;
-  transition:0.4s;
+  transition:0.8s;
 }
