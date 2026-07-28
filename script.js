@@ -1,11 +1,11 @@
 const loadingMessages = [
-"Accessing Memory Archive...",
-"Loading Clash Royale Battles...",
-"Finding Late Night Coversations...",
-"Collecting Food Memories...",
-"Recovering Abe Saale Moments...",
-"Restoring Sid's Playlist...",
-"Almost There..."
+"Accessing memory archive...",
+"Loading late night battles...",
+"Finding 4am coversations...",
+"Collecting food memories...",
+"Recovering 'Abe saale' moments...",
+"Restoring Sid's playlist...",
+"Almost there..."
 ];
 
 let progress = 0;
@@ -20,7 +20,7 @@ function load(){
       index++;
     }
     progress+=15;
-    setTimeout(load,800);
+    setTimeout(load,3000);
   }
 }
 load();
