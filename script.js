@@ -1,9 +1,9 @@
 const loadingMessages = [
 "Unlocking memory archive...",
 "Replaying late-night battles...",
-"Recovering 4AM coversations...",
+"Recovering 4 AM coversations...",
 "Restoring food memories...",
-"Recovering "Abe saale" moments...",
+"Recovering \"Abe saale\" moments...",
 "Playing Sid's playlist on repeat...",
 "Updating sleep schedules...",
 "Making room for one more memory..."
@@ -20,11 +20,11 @@ function updateLoader(){
 if(progress<=100){
 progressBar.style.width=progress +"%";
 if(progress % 13 === 0 && index < loadingMessages.length){
-loaadingText.style.opacity=0;
+loadingText.style.opacity=0;
 
 setTimeout(()=>{
 loadingText.textContent=loadingMessages[index];
-loadingText.style.opcaity=1;
+loadingText.style.opacity=1;
 index++;
 },250);
 }
