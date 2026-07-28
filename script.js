@@ -29,7 +29,7 @@ index++;
 },250);
 }
 progress++;
-setTimeout(updateLoader,70);
+setTimeout(updateLoader,100);
 }
 else{
 loadingText.innerHTML="Archive restored.";
