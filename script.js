@@ -1,27 +1,53 @@
 const loadingMessages = [
-"Accessing memory archive...",
-"Loading late night battles...",
-"Finding 4am coversations...",
-"Collecting food memories...",
-"Recovering 'Abe saale' moments...",
-"Restoring Sid's playlist...",
-"Almost there..."
+"Unlocking memory archive...",
+"Replaying late-night battles...",
+"Recovering 4AM coversations...",
+"Restoring food memories...",
+"Recovering "Abe saale" moments...",
+"Playing Sid's playlist on repeat...",
+"Updating sleep schedules...",
+"Making room for one more memory..."
 ];
 
 let progress = 0;
 let index = 0;
-const bar = document.getElementById("progressBar");
-const text = document.getElementById("loadingText");
-function load(){
-  if(progress<=100){
-    bar.style.width=progress+"%";
-    if(index<loadingMessages.length){
-      text.innerHTML =loadingMessages[index];
-      index++;
-    }
-    progress+=15;
-    setTimeout(load,3000);
-  }
+const progressBar = 
+document.getElementById("progressBar");
+const loadingText = document.getElementById("loadingText");
+
+function updateLoader(){
+
+if(progress<=100){
+progressBar.style.width=progress +"%";
+if(progress % 13 === 0 && index < loadingMessages.length){
+loaadingText.style.opacity=0;
+
+setTimeout(()=>{
+loadingText.textContent=loadingMessages[index];
+loadingText.style.opcaity=1;
+index++;
+},250);
 }
-load();
-  
+progress++;
+setTimeout(updateLoader,70);
+}
+else{
+loadingText.innerHTML="Archive restored.";
+}
+}
+updateLoader()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
