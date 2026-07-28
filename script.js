@@ -45,7 +45,7 @@ function showFinished(){
                         loadingText.innerHTML ='<div class="finished">
                                 <p>Archive restored
                                 One memory was left unopened.</p>
-                                <button id="beginBtn">Begin➡️</button></div>';
+                                <button id="beginBtn">Begin</button></div>';
                         loadingText.style.opacity=1;
 
 document.getEngagedById("beginBtn").addEventListener("click",()=>{
