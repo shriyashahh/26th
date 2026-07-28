@@ -1,7 +1,7 @@
 const loadingMessages = [
 "Unlocking memory archive...",
 "Replaying late-night battles...",
-"Recovering 4 AM coversations...",
+"Recovering 4AM conversations...",
 "Restoring food memories...",
 "Recovering \"Abe saale\" moments...",
 "Playing Sid's playlist on repeat...",
@@ -42,16 +42,21 @@ setTimeout(updateLoader,100);
 function showFinished(){
         loadingText.style.opacity=0;
                 setTimeout(()=>{
-                        loadingText.innerHTML ='<div class="finished">
-                                <p>Archive restored
-                                One memory was left unopened.</p>
-                                <button id="beginBtn">Begin</button></div>';
+                        loadingText.innerHTML =
+                                `<div class="finished">
+                                        <p>Archive restored.<br>One memory remains unopened.</p>
+                                        <button id="beginBtn">Ready to unfold?</button>
+                                </div>`;
                         loadingText.style.opacity=1;
+        setTimeout(()=>{
+                loadingText.innerHTML +=`
+                        <button id="beginBtn">Ready to unfold? ➡️</button>
+                `;
 
-document.getEngagedById("beginBtn").addEventListener("click",()=>{
+document.getElementById("beginBtn").addEventListener("click",()=>{
         alert("Next page coming soon")
 });
-                },400);
+                },1000);
 }
 updateLoader();
 
