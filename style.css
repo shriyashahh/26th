@@ -1,13 +1,47 @@
-body{
-  background:#111827;
-  color:white;
-  text-align:center;
-  font-family:Abadi;
-  padding-top:120px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-button{
-  padding:15px 30px;
-  font-size:20px;
-  cursor:pointer;
+body{
+  background:#050505;
+  color:white;
+  font-family:Abadi,sans-serif;
+
+  disply:flex;
+  justify-content:center;
+  align-items:center;
+
+  height:100vh;
+}
+
+.loader{
+  width:70%;
+  max.width:600px;
+}
+
+h1{
+  font-size:50px;
+  margin-bottom:25px;
+}
+
+p{
+  color:#bbbbbb;
+  margin-bottom:20px;
+}
+
+.progress{
+  width:100%;
+  height:10px;
+  background:#222;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+#progressBrar{
+  width:0%;
+  height:100%;
+  background:#FFD700;
+  transition:0.4s;
 }
