@@ -1,23 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.querySelector(".envelope-container");
+    const envelope = document.querySelector(".envelope");
     const seal = document.querySelector(".wax-seal");
-    const flap = document.querySelector(".envelope-flap");
 
-    // Show the envelope when the page loads
     container.classList.add("show");
 
-    // Open the envelope
     seal.addEventListener("click", () => {
 
-        // Hide the seal
+        // Pop the seal away
         seal.style.transform = "translateX(-50%) scale(0)";
         seal.style.opacity = "0";
 
-        // Open the flap after a short delay
+        // Open the envelope
         setTimeout(() => {
-            flap.style.transform = "rotateX(180deg)";
-        }, 300);
+            envelope.classList.add("open");
+        }, 250);
+
+        // Go to the letter page later
+        setTimeout(() => {
+            // window.location.href = "letter.html";
+            console.log("Envelope opened!");
+        }, 1800);
 
     });
 
