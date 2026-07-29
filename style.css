@@ -272,10 +272,10 @@ overflow:hidden;
 .dust::after{
   content:"";
   position:absolute;
-  width:2px;
-  height:2px;
+  width:5px;
+  height:5px;
 
-  background:rgba(255,245,220,.22);
+  background:rgba(255,245,220,.42);
   border-radius:50%
   box-shadow:
 4vw 8vh rgba(255,245,220,.16),
@@ -293,13 +293,13 @@ overflow:hidden;
 88vw 45vh rgba(255,245,220,.18),
 95vw 18vh rgba(255,245,220,.20);
 
-  animation: dustrift 26s linear infinite;
+  animation: dustDrift 26s linear infinite;
   filter:blur(.4px);
 }
 
 .dust::after{
-  animation-duration:36s;
-  opacity:.55;
+  animation-duration:18s;
+  opacity:.8;
   transform:scale(.8);
 }
 
