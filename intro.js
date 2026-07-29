@@ -1,28 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const container = document.querySelector(".envelope-container");
-    const envelope = document.querySelector(".envelope");
-    const seal = document.querySelector(".wax-seal");
+const container = document.querySelector(".envelope-container");
+const envelope = document.querySelector(".envelope");
+const seal = document.querySelector(".wax-seal");
+const flap = document.querySelector(".envelope-flap");
 
+setTimeout(() => {
     container.classList.add("show");
+}, 500);
 
-    seal.addEventListener("click", () => {
 
-        // Pop the seal away
-        seal.style.transform = "translateX(-50%) scale(0)";
-        seal.style.opacity = "0";
+// Camera slowly zooms in
+setTimeout(() => {
+    document.body.classList.add("zoom");
+}, 1200);
 
-        // Open the envelope
-        setTimeout(() => {
-            envelope.classList.add("open");
-        }, 250);
 
-        // Go to the letter page later
-        setTimeout(() => {
-            // window.location.href = "letter.html";
-            console.log("Envelope opened!");
-        }, 1800);
+seal.addEventListener("click", () => {
 
-    });
+    seal.style.pointerEvents = "none";
+
+    // Seal melts away
+    seal.style.transform = "translateX(-50%) scale(0)";
+    seal.style.opacity = "0";
+
+    // Open flap
+    setTimeout(() => {
+        flap.classList.add("open");
+    }, 350);
+
+    // Pull envelope forward
+    setTimeout(() => {
+        envelope.classList.add("opened");
+    }, 900);
+
+    // Next page
+    setTimeout(() => {
+        window.location.href = "letter.html";
+    }, 3300);
+
+});
 
 });
