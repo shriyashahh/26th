@@ -247,14 +247,16 @@ opacity:0;
 
 animation:
 
-fadeRoom 2.5s ease forwards,
-cameraMove 18s ease forwards;
+fadeRoom 2s ease forwards,
+cameraMove 15s ease forwards;
 
 filter:
 
-brightness(.45)
-contrast(1.08)
-saturate(.95);
+brightness(.52)
+contrast(1.12)
+saturate(1.02);
+
+will-change:transform;
 
 }
 
@@ -268,16 +270,18 @@ height:100%;
 
 object-fit:cover;
 
-opacity:.12;
+opacity:.025;
 
 animation:
 
-fadeRoom 2.5s ease forwards,
-dustFloat 18s linear infinite;
+fadeRoom 2s ease forwards,
+dustFloat 35s linear infinite;
 
 pointer-events:none;
 
 mix-blend-mode:screen;
+
+filter:blur(1px)
 
 }
 
@@ -316,15 +320,42 @@ opacity:1;
 
 0%{
 
-transform:scale(1);
+transform:
+  translateX(0px)
+  translateY(0px)
+  rotate(.2deg)
+  scale(1);
+  filter:blue(3px);
 
 }
 
-100%{
+20%{
+  filter:blur(2px);
+}
 
-transform:scale(1.08);
+40%{
+  filter:blue(1px);
+}
+
+60%{
+
+transform:
+  translateX(-6px)
+  translateY(-5px)
+  rotate(.1deg)
+  scale(1.08);
+  filter:blur(.4px)
 
 }
+
+  100%{
+    transform:
+      translateX(-18px)
+      translateY(-14px)
+      rotate(0deg)
+      scale(1.22);
+    filter:blur(0px)
+  }
 
 }
 
@@ -332,14 +363,34 @@ transform:scale(1.08);
 
 0%{
 
-transform:translateY(0);
+transform:translateY(20px);
 
 }
 
 100%{
 
-transform:translateY(-40px);
+transform:translateY(-20px);
 
 }
 
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:#000;
+  pointer-events:none;
+  animation:
+    fadeBlack 2.2s ease forwards;
+  z-index:999;
+}
+
+@keyframes fadeBlack{
+  0%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
 }
