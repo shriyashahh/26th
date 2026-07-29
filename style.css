@@ -219,9 +219,192 @@ transition:.35s ease;
   transform:translateY(-2px)
 }
 
+/* ===================================
+            INTRO PAGE
+=================================== */
 
-/*====================================================
-    INTRO PAGE
-=====================================================*/
+.desk{
 
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top,#18385c 0%,#0B1D33 70%);
+
+    overflow:hidden;
+
+}
+
+.envelope-container{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:all 1.2s ease;
+
+}
+
+.envelope-container.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.envelope{
+
+    width:340px;
+    height:220px;
+
+    background:#F5ECD9;
+
+    border-radius:6px;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(135deg,
+    transparent 50%,
+    rgba(0,0,0,.04) 50%);
+
+    clip-path:polygon(0 0,100% 0,50% 55%);
+
+}
+
+.name{
+
+    position:absolute;
+
+    top:60px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#5F4930;
+
+    font-size:34px;
+
+    line-height:1.4;
+
+}
+
+.name::before{
+
+    content:"To,";
+
+    display:block;
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+}
+
+.wax-seal{
+
+    position:absolute;
+
+    left:50%;
+    bottom:48px;
+
+    transform:translateX(-50%);
+
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+    145deg,
+    #C79A5A,
+    #A97B42
+    );
+
+    box-shadow:
+    0 0 18px rgba(201,168,106,.25);
+
+    animation:breathe 3s ease-in-out infinite;
+
+}
+
+.waiting-text{
+
+    margin-top:40px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
+
+    color:var(--text);
+
+    opacity:.9;
+
+}
+
+#openLetter{
+
+    margin-top:26px;
+
+    padding:13px 36px;
+
+    background:none;
+
+    border:1px solid var(--gold);
+
+    border-radius:40px;
+
+    color:var(--gold);
+
+    font-size:15px;
+
+    font-family:'Inter',sans-serif;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+#openLetter:hover{
+
+    background:var(--gold);
+
+    color:var(--bg);
+
+    transform:translateY(-2px);
+
+}
+
+@keyframes breathe{
+  0%,100%
+  {box-shadow:0 0 18px rgba(201,168,106,20);
+  }
+}
 
