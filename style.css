@@ -360,26 +360,35 @@ transition:.35s ease;
     position:absolute;
 
     left:50%;
-    bottom:48px;
+    top:90px;
 
     transform:translateX(-50%);
 
-    width:44px;
-    height:44px;
+    width:46px;
+    height:46px;
 
     border-radius:50%;
 
     background:linear-gradient(
     145deg,
     #C79A5A,
-    #A97B42
+    #A67735
     );
 
+    cursor:pointer;
+    transition: 4s;
+    z-index: 10;
     box-shadow:
     0 0 18px rgba(201,168,106,.25);
 
-    animation:breathe 3s ease-in-out infinite;
+    animation:breathe 3s infinite;
 
+}
+
+.wax-seal:hover{
+  transform:
+  translateX(-50%)
+  scale(1.08);
 }
 
 .waiting-text{
