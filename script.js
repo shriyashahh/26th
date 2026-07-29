@@ -61,7 +61,7 @@ function showFinished(){
             `;
 
             document.getElementById("beginBtn").addEventListener("click", () => {
-                alert("Next page coming soon");
+                window.location.href="intro.html";
             });
 
         }, 1000);
