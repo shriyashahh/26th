@@ -264,25 +264,43 @@ will-change:transform;
 
 position:absolute;
 inset:0;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-opacity:.025;
-
-animation:
-
-fadeRoom 2s ease forwards,
-dustFloat 35s linear infinite;
-
 pointer-events:none;
+overflow:hidden;
+}
 
-mix-blend-mode:screen;
+.dust::before,
+.dust::after{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:2px;
 
-filter:blur(1px)
+  background:rgba(255,245,220,.22);
+  border-radius:50%
+  box-shadow:
+4vw 8vh rgba(255,245,220,.16),
+9vw 22vh rgba(255,245,220,.22),
+14vw 62vh rgba(255,245,220,.18),
+21vw 35vh rgba(255,245,220,.12),
+28vw 80vh rgba(255,245,220,.20),
+35vw 18vh rgba(255,245,220,.15),
+42vw 72vh rgba(255,245,220,.18),
+50vw 40vh rgba(255,245,220,.22),
+57vw 12vh rgba(255,245,220,.16),
+64vw 60vh rgba(255,245,220,.18),
+72vw 28vh rgba(255,245,220,.20),
+80vw 75vh rgba(255,245,220,.14),
+88vw 45vh rgba(255,245,220,.18),
+95vw 18vh rgba(255,245,220,.20);
 
+  animation: dustrift 26s linear infinite;
+  filter:blur(.4px);
+}
+
+.dust::after{
+  animation-duration:36s;
+  opacity:.55;
+  transform:scale(.8);
 }
 
 .vignette{
@@ -359,18 +377,25 @@ transform:
 
 }
 
-@keyframes dustFloat{
+@keyframes dustDrift{
 
 0%{
 
-transform:translateY(20px);
+transform:translateY(18px)
+translateX(0px);
 
+}
+
+50%{
+  transform:
+    translateY(-10px)
+    translateX(8px)
 }
 
 100%{
 
-transform:translateY(-20px);
-
+transform:translateY(-35px)
+  translateX(-6px);
 }
 
 }
