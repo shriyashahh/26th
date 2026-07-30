@@ -1,1 +1,37 @@
+.center {
 
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 12px;
+
+    margin: 12px 0;
+
+}
+
+.reel {
+
+    align-self: flex-start;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    max-width: 75%;
+
+    color: #d1d5db;
+
+}
+
+.final {
+
+    margin-top: 30px;
+
+    font-style: italic;
+
+    letter-spacing: 1px;
+
+}
