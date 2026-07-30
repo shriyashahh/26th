@@ -9,4 +9,3 @@ function unlockDownloads(){
         .style.display="flex";
 }
 
-unlockDownloads();
