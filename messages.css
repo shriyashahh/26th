@@ -82,12 +82,8 @@ body {
 .right {
     align-self: flex-end;
 
-    background: linear-gradient(
-        135deg,
-        #833AB4,
-        #C13584,
-        #FD1D1D
-        );
+    background:
+        #833AB4;
 
     color: #ffffff;
 
