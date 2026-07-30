@@ -18,7 +18,7 @@ function playSong(number) {
 
 function showMore() {
 
-    document.getElementById("moreSongs").style.display = "block";
+    document.getElementById("moreSongs").style.display = "flex";
 
     document.getElementById("moreBtn").style.display = "none";
 
