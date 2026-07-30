@@ -61,7 +61,7 @@ function showFinished(){
             `;
 
             document.getElementById("beginBtn").addEventListener("click", () => {
-                window.location.href="intro.html";
+                window.location.href="lockscreen.html";
             });
 
         }, 1000);
