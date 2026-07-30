@@ -431,7 +431,8 @@ body::after{
     left: 100%;
     top: 100%;
 
-    width: 700px;
+    width: 100vw;
+    height:100vh;
 
     transform: translate(-50%, -50%);
 
@@ -444,7 +445,8 @@ body::after{
 
 .desk {
 
-    width: 100%;
+    width: 100vw;
+    height:100vh;
 
     opacity: 0;
 
@@ -457,7 +459,8 @@ body::after{
 
     position: absolute;
 
-    width: 320px;
+    width: 100vw;
+    height:100vh;
 
     left: 100%;
     top: 100%;
