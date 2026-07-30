@@ -1,15 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MemoryOS</title>
+
+    <link rel="stylesheet" href="home.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 </head>
 
-<body style="background:black;color:white;display:flex;justify-content:center;align-items:center;height:100vh;">
+<body>
 
-    <h1>Welcome, Siddhesh.</h1>
+    <div class="phone">
+
+        <div class="status-bar">
+
+            <span>03:56 AM</span>
+            <span>📶 🔋 17%</span>
+
+        </div>
+
+        <h2 class="heading">MemoryOS</h2>
+
+        <div class="apps">
+
+            <div class="app" onclick="openApp('downloads.html')">
+                <span>📁</span>
+                <p>Downloads</p>
+            </div>
+
+            <div class="app" onclick="openApp('games.html')">
+                <span>🎮</span>
+                <p>Games</p>
+            </div>
+
+            <div class="app" onclick="openApp('music.html')">
+                <span>🎵</span>
+                <p>Music</p>
+            </div>
+
+            <div class="app" onclick="openApp('gallery.html')">
+                <span>📷</span>
+                <p>Gallery</p>
+            </div>
+
+            <div class="app" onclick="openApp('messages.html')">
+                <span>💬</span>
+                <p>Messages</p>
+            </div>
+
+            <div class="app" onclick="openApp('unknown.html')">
+                <span>❓</span>
+                <p>Unknown</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="home.js"></script>
 
 </body>
 
