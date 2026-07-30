@@ -6,7 +6,7 @@ function openApp(page) {
 
 function unlockDownloads(){
     document.getElementById("downloadsApp")
-        .style.display="felx";
+        .style.display="flex";
 }
 
 unlockDownloads();
