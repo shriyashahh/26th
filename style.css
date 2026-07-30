@@ -428,8 +428,8 @@ body::after{
 
     position: absolute;
 
-    left: 50%;
-    top: 58%;
+    left: 100%;
+    top: 100%;
 
     width: 700px;
 
@@ -438,7 +438,7 @@ body::after{
     z-index: 5;
     opacity:0;
     animation:showContainer 1s ease forwards;
-    animation-delay:2s;
+    animation-delay:4s;
 
 }
 
@@ -450,7 +450,7 @@ body::after{
 
     animation: deskAppear 2s ease forwards;
 
-    animation-delay: 2.5s;
+    animation-delay: 4.5s;
 }
 
 #envelope {
@@ -459,16 +459,16 @@ body::after{
 
     width: 320px;
 
-    left: 50%;
-    top: 48%;
+    left: 100%;
+    top: 100%;
 
     opacity: 0;
 
     transform: translate(120%, -50%) rotate(-10deg);
 
-    animation: envelopeEnter 2.5s ease forwards;
+    animation: envelopeEnter 4.5s ease forwards;
 
-    animation-delay: 3s;
+    animation-delay: 5s;
 
     filter: drop-shadow(0 10px 25px rgba(0,0,0,.35));
 }
