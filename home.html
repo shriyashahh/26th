@@ -29,11 +29,6 @@
 
         <div class="apps">
 
-            <div class="app" onclick="openApp('downloads.html')">
-                <span>📁</span>
-                <p>Downloads</p>
-            </div>
-
             <div class="app" onclick="openApp('games.html')">
                 <span>🎮</span>
                 <p>Games</p>
@@ -55,9 +50,16 @@
             </div>
 
             <div class="app" onclick="openApp('unknown.html')">
-                <span>❓</span>
-                <p>Unknown</p>
+                <span>⚠️</span>
+                <p>do_not_open.exe</p>
             </div>
+
+            <div class="app hidden"id="downloadsApp"
+                onclick="openApp('downloads.html')">
+
+                <span>📥</span>
+
+                <p>Downloads</p>
 
         </div>
 
