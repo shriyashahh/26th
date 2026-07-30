@@ -101,4 +101,5 @@ body {
 
 .hidden{
     display:none !important;
+    background: red !important;
 }
