@@ -15,11 +15,3 @@ function playSong(number) {
     player.play();
 
 }
-
-function showMore() {
-
-    document.getElementById("moreSongs").style.display = "flex";
-
-    document.getElementById("moreBtn").style.display = "none";
-
-}
