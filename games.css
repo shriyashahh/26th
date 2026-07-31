@@ -151,19 +151,25 @@ body {
 
 .balloon {
 
-    width: 100px;
+    width: 150px;
+    position:absolute;
+    left:-300px;
 
 }
 
 .confettiGoblin {
 
-    width: 90px;
+    width: 140px;
+    position:absolute;
+    left:-300px;
 
 }
 
 #cakeGoblin {
 
-    width: 130px;
+    width: 180px;
+    position:absolute;
+    left:-300px;
 
 }
 
