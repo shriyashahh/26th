@@ -73,8 +73,6 @@ kingVoice.onended = () => {
     }, 1500);
 
 };
-king.src="assets/battle/king_confetti.png";
-king.classList.add("king-top");
 
 
 function startParade() {
