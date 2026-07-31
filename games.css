@@ -1,299 +1,224 @@
 * {
-
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
-
     overflow: hidden;
+    background: #111;
     font-family: Arial, sans-serif;
-    background: black;
-
 }
 
-.arena {
-
+#gameScene {
+    position: relative;
     width: 100vw;
     height: 100vh;
 
+    background:
+        radial-gradient(circle at top, rgba(110, 70, 255, 0.7), transparent 40%),
+        radial-gradient(circle at bottom, rgba(0, 180, 255, 0.4), transparent 50%),
+        linear-gradient(180deg, #1d1442 0%, #111 100%);
+
     overflow: hidden;
-    position: relative;
-
-    background: linear-gradient(
-        to bottom,
-        #234a8b,
-        #142c57,
-        #08101d
-    );
-
-    transition: 1.5s;
-
 }
 
-.party {
+/* sparkles */
 
-    background: linear-gradient(
-        to bottom,
-        #24164b,
-        #40236f,
-        #1d1338
-    );
-
-}
-
-#battleText {
+#gameScene::before {
+    content: "";
 
     position: absolute;
-
-    top: 45%;
-
-    width: 100%;
-
-    text-align: center;
-
-    color: white;
-
-    font-size: 34px;
-
-    font-weight: bold;
-
-    transition: 1s;
-
-}
-
-#overlay {
-
-    position: absolute;
-
     inset: 0;
 
-    background: rgba(0, 0, 0, 0);
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
 
-    transition: 1s;
+    background-size: 120px 120px;
 
+    opacity: 0.15;
+
+    animation: starsMove 25s linear infinite;
 }
 
-#king,
-#kingConfetti {
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(120px);
+    }
+}
+
+/* king */
+
+#king {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 180px;
+
+    z-index: 100;
+
+    transition: all 1.5s ease;
+}
+
+/* golden aura */
+
+#king::after {
+    content: "";
 
     position: absolute;
 
-    width: 260px;
+    width: 250px;
+    height: 250px;
 
+    background: radial-gradient(
+        circle,
+        rgba(255, 210, 70, 0.45),
+        transparent 70%
+    );
+
+    top: 50%;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 
-    bottom: -400px;
+    filter: blur(30px);
 
-    opacity: 0;
-
-    transition: 1.5s;
-
+    z-index: -1;
 }
 
-#kingConfetti {
+/* move king to top */
 
-    opacity: 0;
-
+.king-top {
+    top: 60px !important;
+    transform: translateX(-50%) !important;
 }
 
-.kingTop {
+/* goblins */
 
-    width: 160px !important;
-
-    top: 10px !important;
-
-    bottom: auto !important;
-
-}
-
-#speech {
-
+.goblin {
     position: absolute;
 
-    top: 80px;
+    width: 170px;
 
-    left: 50%;
+    z-index: 10;
 
-    transform: translateX(-50%);
+    transition: all 3s ease;
 
-    background: white;
-
-    color: black;
-
-    padding: 14px 20px;
-
-    border-radius: 20px;
-
-    font-weight: bold;
-
-    opacity: 0;
-
-    transition: 1s;
-
+    animation: bounce 1.8s infinite ease-in-out;
 }
 
-/* Goblins */
+@keyframes bounce {
 
-.balloon,
-.confettiGoblin,
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* cake goblin */
+
 #cakeGoblin {
 
-    position: absolute;
-
-    opacity: 0;
-
+    left: -300px;
+    bottom: 150px;
 }
 
-.balloon {
+/* balloon goblins */
 
-    width: 150px;
-    position:absolute;
-    left:-300px;
+.balloonGoblin {
 
+    top: -250px;
 }
+
+/* confetti goblins */
 
 .confettiGoblin {
 
-    width: 140px;
-    position:absolute;
-    left:-300px;
-
+    left: -250px;
 }
 
-#cakeGoblin {
+/* fallen cake */
 
-    width: 180px;
-    position:absolute;
-    left:-300px;
+#fallenCake {
 
-}
+    position: absolute;
 
-.b1 {
+    width: 220px;
 
-    top: 70%;
-
-}
-
-.b2 {
-
-    top: 55%;
-
-}
-
-.b3 {
-
-    top: 82%;
-
-}
-
-.c1 {
-
-    top: 45%;
-
-}
-
-.c2 {
-
+    left: 50%;
     top: 62%;
 
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    z-index: 50;
 }
 
-.c3 {
+/* panic goblin */
 
-    top: 35%;
+#panicGoblin {
 
+    position: absolute;
+
+    width: 170px;
+
+    left: 58%;
+    top: 56%;
+
+    opacity: 0;
+
+    z-index: 55;
 }
 
-.c4 {
+/* confetti rain */
 
-    top: 78%;
-
-}
-
-#cakeGoblin {
-
-    top: 68%;
-
-}
-
-@keyframes leftToRight {
-
-    from {
-
-        transform: translateX(-200px);
-
-    }
-
-    to {
-
-        transform: translateX(120vw);
-
-    }
-
-}
-
-@keyframes rightToLeft {
-
-    from {
-
-        transform: translateX(120vw);
-
-    }
-
-    to {
-
-        transform: translateX(-200px);
-
-    }
-
-}
-
-@keyframes diagonal {
-
-    from {
-
-        transform: translate(-200px, 40px);
-
-    }
-
-    to {
-
-        transform: translate(120vw, -50px);
-
-    }
-
-}
-
-.confetti {
+.confetti-piece {
 
     position: absolute;
 
     width: 10px;
     height: 10px;
 
-    border-radius: 50%;
+    border-radius: 3px;
 
-    animation: fall 4s linear forwards;
-
+    animation: fall 4s linear infinite;
 }
 
 @keyframes fall {
 
     from {
 
-        transform: translateY(-20px);
+        transform:
+            translateY(-100px)
+            rotate(0deg);
 
+        opacity: 1;
     }
 
     to {
 
-        transform: translateY(110vh);
+        transform:
+            translateY(110vh)
+            rotate(720deg);
 
+        opacity: 0;
     }
-
 }
