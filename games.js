@@ -3,6 +3,7 @@ const kingVoice = document.getElementById("kingVoice");
 
 const run1 = document.getElementById("run1");
 const run2 = document.getElementById("run2");
+const giggle = document.getElementById("giggle");
 
 const king = document.getElementById("king");
 const kingConfetti = document.getElementById("kingConfetti");
@@ -28,7 +29,6 @@ window.onload = () => {
     setTimeout(() => {
 
         kingVoice.play();
-
         speech.style.opacity = "1";
 
     }, 1200);
@@ -37,13 +37,13 @@ window.onload = () => {
 
         battleText.innerHTML = "❄️ BATTLE FREEZE ❄️";
 
+        speech.style.opacity = "0";
+
         setTimeout(() => {
 
             battleText.style.opacity = "0";
 
-        }, 1800);
-
-        speech.style.opacity = "0";
+        }, 1700);
 
         king.style.opacity = "0";
 
@@ -61,13 +61,17 @@ window.onload = () => {
 
             startConfetti();
 
-            startGoblins();
+            setTimeout(() => {
+
+                startGoblins();
+
+            }, 400);
 
         }, 700);
 
     };
-
 };
+
 
 function startGoblins() {
 
@@ -83,7 +87,14 @@ function startGoblins() {
 
         run2.play();
 
-    }, 800);
+    }, 700);
+
+    setTimeout(() => {
+
+        giggle.volume = 0.45;
+        giggle.play();
+
+    }, 1500);
 
 
     balloons.forEach((goblin, index) => {
@@ -91,8 +102,9 @@ function startGoblins() {
         setTimeout(() => {
 
             goblin.classList.add("show");
+            goblin.classList.add("running");
 
-        }, index * 400);
+        }, index * 450);
 
     });
 
@@ -102,8 +114,9 @@ function startGoblins() {
         setTimeout(() => {
 
             goblin.classList.add("show");
+            goblin.classList.add("running");
 
-        }, 700 + index * 350);
+        }, 500 + index * 350);
 
     });
 
@@ -111,53 +124,25 @@ function startGoblins() {
     setTimeout(() => {
 
         cakeGoblin.classList.add("show");
+        cakeGoblin.classList.add("running");
 
-    }, 1200);
+    }, 900);
 
-}
 
-function startConfetti() {
+    setTimeout(() => {
 
-    setInterval(() => {
+        run1.pause();
+        run2.pause();
 
-        const piece = document.createElement("div");
+        run1.currentTime = 0;
+        run2.currentTime = 0;
 
-        piece.className = "confetti";
+        document.querySelectorAll(
+            ".balloon, .confettiGoblin, #cakeGoblin"
+        ).forEach(goblin => {
 
-        const colors = [
+            goblin.classList.remove("running");
 
-            "#ffd700",
-            "#ff4081",
-            "#4caf50",
-            "#2196f3",
-            "#ff9800"
+        });
 
-        ];
-
-        piece.style.background =
-
-            colors[Math.floor(Math.random() * colors.length)];
-
-        const center = window.innerWidth / 2;
-
-        piece.style.left =
-
-            center - 250 + Math.random() * 500 + "px";
-
-        piece.style.top = "-20px";
-
-        piece.style.transform =
-
-            `rotate(${Math.random() * 360}deg)`;
-
-        document.body.appendChild(piece);
-
-        setTimeout(() => {
-
-            piece.remove();
-
-        }, 3500);
-
-    }, 80);
-
-}
+    }, 420
