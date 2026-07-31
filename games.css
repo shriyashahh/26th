@@ -1,224 +1,293 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body {
+
     overflow: hidden;
-    background: #111;
     font-family: Arial, sans-serif;
+    background: black;
+
 }
 
-#gameScene {
-    position: relative;
+.arena {
+
     width: 100vw;
     height: 100vh;
 
-    background:
-        radial-gradient(circle at top, rgba(110, 70, 255, 0.7), transparent 40%),
-        radial-gradient(circle at bottom, rgba(0, 180, 255, 0.4), transparent 50%),
-        linear-gradient(180deg, #1d1442 0%, #111 100%);
-
     overflow: hidden;
-}
+    position: relative;
 
-/* sparkles */
-
-#gameScene::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 1px, transparent 1px);
-
-    background-size: 120px 120px;
-
-    opacity: 0.15;
-
-    animation: starsMove 25s linear infinite;
-}
-
-@keyframes starsMove {
-
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(120px);
-    }
-}
-
-/* king */
-
-#king {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 180px;
-
-    z-index: 100;
-
-    transition: all 1.5s ease;
-}
-
-/* golden aura */
-
-#king::after {
-    content: "";
-
-    position: absolute;
-
-    width: 250px;
-    height: 250px;
-
-    background: radial-gradient(
-        circle,
-        rgba(255, 210, 70, 0.45),
-        transparent 70%
+    background: linear-gradient(
+        to bottom,
+        #234a8b,
+        #142c57,
+        #08101d
     );
 
-    top: 50%;
-    left: 50%;
+    transition: 1.5s;
 
-    transform: translate(-50%, -50%);
-
-    filter: blur(30px);
-
-    z-index: -1;
 }
 
-/* move king to top */
+.party {
 
-.king-top {
-    top: 60px !important;
-    transform: translateX(-50%) !important;
+    background: linear-gradient(
+        to bottom,
+        #24164b,
+        #40236f,
+        #1d1338
+    );
+
 }
 
-/* goblins */
-
-.goblin {
-    position: absolute;
-
-    width: 170px;
-
-    z-index: 10;
-
-    transition: all 3s ease;
-
-    animation: bounce 1.8s infinite ease-in-out;
-}
-
-@keyframes bounce {
-
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-/* cake goblin */
-
-#cakeGoblin {
-
-    left: -300px;
-    bottom: 150px;
-}
-
-/* balloon goblins */
-
-.balloonGoblin {
-
-    top: -250px;
-}
-
-/* confetti goblins */
-
-.confettiGoblin {
-
-    left: -250px;
-}
-
-/* fallen cake */
-
-#fallenCake {
+#battleText {
 
     position: absolute;
 
-    width: 220px;
+    top: 45%;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    transition: 1s;
+
+}
+
+#overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0);
+
+    transition: 1s;
+
+}
+
+#king,
+#kingConfetti {
+
+    position: absolute;
+
+    width: 260px;
 
     left: 50%;
-    top: 62%;
 
     transform: translateX(-50%);
 
+    bottom: -400px;
+
     opacity: 0;
 
-    z-index: 50;
+    transition: 1.5s;
+
 }
 
-/* panic goblin */
+#kingConfetti {
 
-#panicGoblin {
+    opacity: 0;
+
+}
+
+.kingTop {
+
+    width: 160px !important;
+
+    top: 10px !important;
+
+    bottom: auto !important;
+
+}
+
+#speech {
 
     position: absolute;
 
-    width: 170px;
+    top: 80px;
 
-    left: 58%;
-    top: 56%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    color: black;
+
+    padding: 14px 20px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
 
     opacity: 0;
 
-    z-index: 55;
+    transition: 1s;
+
 }
 
-/* confetti rain */
+/* Goblins */
 
-.confetti-piece {
+.balloon,
+.confettiGoblin,
+#cakeGoblin {
+
+    position: absolute;
+
+    opacity: 0;
+
+}
+
+.balloon {
+
+    width: 100px;
+
+}
+
+.confettiGoblin {
+
+    width: 90px;
+
+}
+
+#cakeGoblin {
+
+    width: 130px;
+
+}
+
+.b1 {
+
+    top: 70%;
+
+}
+
+.b2 {
+
+    top: 55%;
+
+}
+
+.b3 {
+
+    top: 82%;
+
+}
+
+.c1 {
+
+    top: 45%;
+
+}
+
+.c2 {
+
+    top: 62%;
+
+}
+
+.c3 {
+
+    top: 35%;
+
+}
+
+.c4 {
+
+    top: 78%;
+
+}
+
+#cakeGoblin {
+
+    top: 68%;
+
+}
+
+@keyframes leftToRight {
+
+    from {
+
+        transform: translateX(-200px);
+
+    }
+
+    to {
+
+        transform: translateX(120vw);
+
+    }
+
+}
+
+@keyframes rightToLeft {
+
+    from {
+
+        transform: translateX(120vw);
+
+    }
+
+    to {
+
+        transform: translateX(-200px);
+
+    }
+
+}
+
+@keyframes diagonal {
+
+    from {
+
+        transform: translate(-200px, 40px);
+
+    }
+
+    to {
+
+        transform: translate(120vw, -50px);
+
+    }
+
+}
+
+.confetti {
 
     position: absolute;
 
     width: 10px;
     height: 10px;
 
-    border-radius: 3px;
+    border-radius: 50%;
 
-    animation: fall 4s linear infinite;
+    animation: fall 4s linear forwards;
+
 }
 
 @keyframes fall {
 
     from {
 
-        transform:
-            translateY(-100px)
-            rotate(0deg);
+        transform: translateY(-20px);
 
-        opacity: 1;
     }
 
     to {
 
-        transform:
-            translateY(110vh)
-            rotate(720deg);
+        transform: translateY(110vh);
 
-        opacity: 0;
     }
+
 }
