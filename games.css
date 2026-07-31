@@ -9,10 +9,8 @@
 body {
 
     overflow: hidden;
-
     font-family: Inter, sans-serif;
-
-    background: #000;
+    background: black;
 
 }
 
@@ -24,15 +22,75 @@ body {
     position: relative;
 
     background: linear-gradient(
-        to bottom,
-        #68a7ff,
-        #2955c8,
-        #0f1b36
+        180deg,
+        #2b4f93,
+        #19396f,
+        #0d1730
+    );
+
+    overflow: hidden;
+
+    transition: 1.5s;
+
+}
+
+.party-mode {
+
+    background: linear-gradient(
+        180deg,
+        #1d1c4a,
+        #41286d,
+        #1f1738
     );
 
 }
 
-/* Battle text */
+/* overlay */
+
+#overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0);
+
+    transition: 1s;
+
+}
+
+/* spotlight */
+
+#spotlight {
+
+    position: absolute;
+
+    top: -300px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 500px;
+    height: 700px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+
+        rgba(255,255,200,0.35),
+
+        transparent 70%
+
+    );
+
+    opacity: 0;
+
+    transition: 1s;
+
+}
+
+/* battle text */
 
 #battleText {
 
@@ -48,49 +106,43 @@ body {
 
     font-size: 34px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    letter-spacing: 2px;
-
-    animation: pulse 1s infinite;
+    letter-spacing: 3px;
 
 }
 
-/* Freeze overlay */
-
-#overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0);
-
-    transition: 1s;
-
-}
-
-/* King */
+/* king */
 
 #king {
 
     position: absolute;
 
-    width: 280px;
+    width: 260px;
 
     left: 50%;
 
-    bottom: -450px;
+    bottom: -420px;
 
     transform: translateX(-50%);
 
     opacity: 0;
 
-    transition: 1s ease;
+    transition: 1.5s;
 
 }
 
-/* King's speech */
+.king-top {
+
+    width: 170px !important;
+
+    top: 20px;
+
+    bottom: auto !important;
+
+}
+
+/* speech */
 
 #speech {
 
@@ -108,11 +160,9 @@ body {
 
     padding: 14px 20px;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
-    font-size: 18px;
-
-    font-weight: 600;
+    font-weight: 700;
 
     opacity: 0;
 
@@ -120,85 +170,105 @@ body {
 
 }
 
-/* Balloon goblin */
+/* goblins */
 
-#balloonGoblin {
+.balloon,
+.confetti,
+#cakeGoblin {
 
     position: absolute;
+
+    opacity: 0;
+
+    height: auto;
+
+}
+
+.balloon {
+
+    width: 110px;
+
+}
+
+.confetti {
+
+    width: 100px;
+
+}
+
+#cakeGoblin {
 
     width: 140px;
 
-    left: -250px;
+}
 
-    bottom: 70px;
+/* positions */
 
-    opacity: 0;
+.goblin1 { top: 65%; }
+
+.goblin2 { top: 78%; }
+
+.goblin3 { top: 55%; }
+
+.confetti1 { top: 48%; }
+
+.confetti2 { top: 68%; }
+
+.confetti3 { top: 35%; }
+
+.confetti4 { top: 58%; }
+
+#cakeGoblin {
+
+    top: 72%;
 
 }
 
-/* Goblin speech */
+/* animations */
 
-#goblinBubble {
-
-    position: absolute;
-
-    bottom: 250px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: white;
-
-    color: black;
-
-    padding: 12px 18px;
-
-    border-radius: 18px;
-
-    font-size: 16px;
-
-    font-weight: 600;
-
-    opacity: 0;
-
-    transition: 0.5s;
-
-}
-
-@keyframes pulse {
-
-    0% {
-
-        transform: scale(1);
-
-    }
-
-    50% {
-
-        transform: scale(1.08);
-
-    }
-
-    100% {
-
-        transform: scale(1);
-
-    }
-
-}
-
-@keyframes goblinRun {
+@keyframes rightToLeft {
 
     from {
 
-        right: -250px;
+        transform: translateX(120vw);
 
     }
 
     to {
 
-        right: 110%;
+        transform: translateX(-150vw);
+
+    }
+
+}
+
+@keyframes leftToRight {
+
+    from {
+
+        transform: translateX(-200px);
+
+    }
+
+    to {
+
+        transform: translateX(120vw);
+
+    }
+
+}
+
+@keyframes diagonal {
+
+    from {
+
+        transform: translate(-100px, 40px);
+
+    }
+
+    to {
+
+        transform: translate(120vw, -30px);
 
     }
 
