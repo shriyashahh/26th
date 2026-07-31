@@ -11,31 +11,55 @@ body {
 }
 
 .arena {
+
     position: relative;
+
     width: 100vw;
     height: 100vh;
+
     overflow: hidden;
 
     background:
+
         radial-gradient(circle at center,
-            #5b4dff 0%,
-            #2b236e 45%,
-            #0b1025 100%);
+
+            #644dff 0%,
+            #3a2f8f 30%,
+            #1a163d 65%,
+            #070c1f 100%);
 }
 
 .arena.party {
+
     background:
+
         radial-gradient(circle at center,
-            #6f59ff 0%,
-            #34227f 50%,
-            #101633 100%);
+
+            #7d63ff 0%,
+            #4937c2 25%,
+            #23185f 60%,
+            #070c1f 100%);
 }
 
 #overlay {
+
     position: absolute;
+
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
+
+    background:
+
+        radial-gradient(
+
+            circle at top center,
+
+            rgba(255, 223, 90, 0.12),
+
+            rgba(0, 0, 0, 0.45)
+
+        );
 }
+
 
 /* BATTLE TEXT */
 
@@ -58,7 +82,7 @@ body {
 
     text-shadow:
 
-        0 0 15px gold,
+        0 0 18px gold,
         0 0 40px gold;
 
     animation: battlePulse 1s infinite;
@@ -78,7 +102,7 @@ body {
 
         transform:
             translate(-50%, -50%)
-            scale(1.08);
+            scale(1.1);
 
     }
 
@@ -91,6 +115,7 @@ body {
     }
 }
 
+
 /* KING */
 
 #king,
@@ -98,7 +123,7 @@ body {
 
     position: absolute;
 
-    width: 240px;
+    width: 230px;
 
     left: 50%;
     top: 50%;
@@ -109,12 +134,12 @@ body {
 
     opacity: 0;
 
+    transition: all 1.5s ease;
+
     filter:
 
-        drop-shadow(0 0 40px rgba(255, 221, 100, .9))
-        drop-shadow(0 0 80px rgba(255, 221, 100, .5));
-
-    transition: all 1.5s ease;
+        drop-shadow(0 0 40px rgba(255, 225, 100, .95))
+        drop-shadow(0 0 100px rgba(255, 200, 0, .55));
 }
 
 #kingConfetti {
@@ -124,10 +149,11 @@ body {
 
 .kingTop {
 
-    top: 11% !important;
+    top: 10% !important;
 
     width: 170px !important;
 }
+
 
 /* SPEECH */
 
@@ -144,7 +170,7 @@ body {
 
     color: black;
 
-    padding: 18px 30px;
+    padding: 18px 28px;
 
     border-radius: 20px;
 
@@ -159,6 +185,7 @@ body {
     transition: .8s;
 }
 
+
 /* GOBLINS */
 
 .balloon,
@@ -167,69 +194,72 @@ body {
 
     position: absolute;
 
-    width: 190px;
+    width: 180px;
 
     opacity: 0;
 
     z-index: 50;
 
-    filter:
-        drop-shadow(0 12px 24px rgba(0, 0, 0, .65));
+    transition: all 2.8s ease;
 
-    transition: all 3s linear;
+    filter:
+
+        drop-shadow(0 15px 25px rgba(0, 0, 0, .75));
 }
 
-/* START POSITIONS */
+
+/* START */
 
 .b1 {
 
-    top: -450px;
+    top: -350px;
     left: 5%;
 }
 
 .b2 {
 
-    top: -500px;
-    left: 75%;
+    top: -400px;
+    left: 78%;
 }
 
 .b3 {
 
-    top: -420px;
-    left: 45%;
+    top: -450px;
+    left: 55%;
 }
 
 .c1 {
 
-    top: 55%;
+    top: 48%;
     left: -300px;
 }
 
 .c2 {
 
-    top: 75%;
+    top: 62%;
     left: -300px;
 }
 
 .c3 {
 
-    top: 58%;
+    top: 50%;
     right: -300px;
 }
 
 .c4 {
 
-    top: 78%;
+    top: 66%;
     right: -300px;
 }
 
 #cakeGoblin {
 
-    width: 240px;
+    width: 230px;
 
-    top: 65%;
-    left: -400px;
+    top: 58%;
+    left: -450px;
 }
+
 
 /* FINAL POSITIONS */
 
@@ -240,60 +270,67 @@ body {
 
 .b1.show {
 
-    top: 35%;
-    left: 8%;
+    top: 36%;
+    left: 7%;
 }
 
 .b2.show {
 
-    top: 50%;
-    left: 78%;
+    top: 46%;
+    left: 77%;
 }
 
 .b3.show {
 
-    top: 72%;
-    left: 65%;
+    top: 64%;
+    left: 64%;
 }
 
 .c1.show {
 
     opacity: 1;
-    left: 20%;
+
+    left: 22%;
 }
 
 .c2.show {
 
     opacity: 1;
-    left: 5%;
+
+    left: 8%;
 }
 
 .c3.show {
 
     opacity: 1;
-    right: 20%;
+
+    right: 22%;
 }
 
 .c4.show {
 
     opacity: 1;
-    right: 3%;
+
+    right: 8%;
 }
 
 #cakeGoblin.show {
 
     opacity: 1;
 
+    top: 58%;
+
     left: 50%;
 
     transform: translateX(-50%);
 }
 
-/* RUNNING EFFECT */
+
+/* RUN */
 
 .running {
 
-    animation: running .18s infinite alternate;
+    animation: running .15s infinite alternate;
 }
 
 @keyframes running {
@@ -301,19 +338,24 @@ body {
     from {
 
         transform:
+
             translateY(0)
-            rotate(-3deg);
+
+            rotate(-2deg);
 
     }
 
     to {
 
         transform:
+
             translateY(-10px)
-            rotate(3deg);
+
+            rotate(2deg);
 
     }
 }
+
 
 /* CONFETTI */
 
@@ -321,8 +363,8 @@ body {
 
     position: absolute;
 
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
 
     border-radius: 50%;
 
@@ -336,7 +378,9 @@ body {
     from {
 
         transform:
-            translateY(-40px)
+
+            translateY(-30px)
+
             rotate(0deg);
 
         opacity: 1;
@@ -345,7 +389,9 @@ body {
     to {
 
         transform:
+
             translateY(110vh)
+
             rotate(720deg);
 
         opacity: 0;
