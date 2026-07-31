@@ -55,6 +55,8 @@ window.onload = () => {
         king.style.opacity = "0";
 
         kingConfetti.style.display = "block";
+        kingConfetti.classList.add("kingTop");
+        kingConfetti.style.opacity="1";
 
         setTimeout(() => {
 
@@ -125,10 +127,18 @@ function startGoblins() {
 
         run1.pause();
         run2.pause();
+        run1.currentTime=0;
+        run2.currentTime=0;
 
         balloons.forEach(g => g.classList.add("bounce"));
         confettiGoblins.forEach(g => g.classList.add("bounce"));
         cakeGoblin.classList.add("bounce");
+
+        setTimeout(()=>{
+            balloons.forEach(g=>g.classList.remove("bounce"));
+            confettiGobliins.forEach(g=>g.classList.remove("bounce"));
+            cakeGoblin.classList.remove("bounce");
+        },2000);
 
         giggle.play();
         giggle.loop=true;
