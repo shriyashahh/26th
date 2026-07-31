@@ -1,29 +1,22 @@
 const battleText = document.getElementById("battleText");
-
 const overlay = document.getElementById("overlay");
-
 const arena = document.getElementById("arena");
 
 const king = document.getElementById("king");
-
 const kingConfetti = document.getElementById("kingConfetti");
 
 const speech = document.getElementById("speech");
 
 const fanfare = document.getElementById("fanfare");
-
 const kingVoice = document.getElementById("kingVoice");
 
 const run1 = document.getElementById("run1");
-
 const run2 = document.getElementById("run2");
-
 const giggle = document.getElementById("giggle");
-
 const yay = document.getElementById("yay");
 
 
-// freeze battle
+// STEP 1
 
 setTimeout(() => {
 
@@ -42,7 +35,7 @@ setTimeout(() => {
 }, 3000);
 
 
-// king voice
+// STEP 2
 
 setTimeout(() => {
 
@@ -51,7 +44,7 @@ setTimeout(() => {
 }, 4300);
 
 
-// after speech
+// STEP 3
 
 kingVoice.onended = () => {
 
@@ -75,71 +68,142 @@ kingVoice.onended = () => {
 
         kingConfetti.classList.add("kingTop");
 
-        startGoblins();
+        startParade();
 
     }, 1500);
 
 };
 
 
-function startGoblins() {
+function startParade() {
 
     const balloons = document.querySelectorAll(".balloon");
 
-    balloons.forEach((g, i) => {
+    const confetti = document.querySelectorAll(".confettiGoblin");
 
-        setTimeout(() => {
+    const cake = document.getElementById("cakeGoblin");
 
-            g.style.opacity = "1";
-
-            g.style.animation =
-                "rightToLeft 7s linear forwards";
-
-            run1.currentTime = 0;
-
-            run1.play();
-
-        }, i * 900);
-
-    });
-
-    const confettiGoblins =
-        document.querySelectorAll(".confettiGoblin");
-
-    confettiGoblins.forEach((g, i) => {
-
-        setTimeout(() => {
-
-            g.style.opacity = "1";
-
-            g.style.animation =
-                "diagonal 6s linear forwards";
-
-            giggle.currentTime = 0;
-
-            giggle.play();
-
-        }, 1200 + i * 700);
-
-    });
+    // BALLOON GOBLINS
 
     setTimeout(() => {
 
-        const cake = document.getElementById("cakeGoblin");
+        balloons[0].style.opacity = "1";
 
-        cake.style.opacity = "1";
+        balloons[0].style.transition = "4s";
 
-        cake.style.animation =
-            "leftToRight 8s linear forwards";
+        balloons[0].style.right = "5%";
 
-        run2.currentTime = 0;
+        balloons[0].style.top = "70%";
 
-        run2.play();
+        run1.play();
+
+    }, 300);
+
+
+    setTimeout(() => {
+
+        balloons[1].style.opacity = "1";
+
+        balloons[1].style.transition = "4s";
+
+        balloons[1].style.right = "30%";
+
+        balloons[1].style.top = "55%";
+
+    }, 1200);
+
+
+    setTimeout(() => {
+
+        balloons[2].style.opacity = "1";
+
+        balloons[2].style.transition = "4s";
+
+        balloons[2].style.right = "55%";
+
+        balloons[2].style.top = "82%";
 
     }, 2200);
 
+
+    // CONFETTI GOBLINS
+
+    setTimeout(() => {
+
+        confetti[0].style.opacity = "1";
+
+        confetti[0].style.transition = "4s";
+
+        confetti[0].style.left = "12%";
+
+        confetti[0].style.top = "42%";
+
+        giggle.play();
+
+    }, 900);
+
+
+    setTimeout(() => {
+
+        confetti[1].style.opacity = "1";
+
+        confetti[1].style.transition = "4s";
+
+        confetti[1].style.left = "70%";
+
+        confetti[1].style.top = "58%";
+
+    }, 1800);
+
+
+    setTimeout(() => {
+
+        confetti[2].style.opacity = "1";
+
+        confetti[2].style.transition = "4s";
+
+        confetti[2].style.left = "25%";
+
+        confetti[2].style.top = "78%";
+
+    }, 2700);
+
+
+    setTimeout(() => {
+
+        confetti[3].style.opacity = "1";
+
+        confetti[3].style.transition = "4s";
+
+        confetti[3].style.left = "82%";
+
+        confetti[3].style.top = "38%";
+
+    }, 3400);
+
+
+    // CAKE GOBLIN
+
+    setTimeout(() => {
+
+        cake.style.opacity = "1";
+
+        cake.style.transition = "5s";
+
+        cake.style.left = "50%";
+
+        cake.style.top = "66%";
+
+        cake.style.transform = "translateX(-50%)";
+
+        run2.play();
+
+    }, 4200);
+
 }
 
+
+// CONFETTI
 
 function createConfetti() {
 
@@ -148,17 +212,17 @@ function createConfetti() {
 
     const colors = [
 
+        "#FFD700",
         "#ff4d6d",
-        "#ffd60a",
         "#4cc9f0",
-        "#ffffff"
+        "#ffffff",
+        "#06d6a0"
 
     ];
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 70; i++) {
 
-        const piece =
-            document.createElement("div");
+        const piece = document.createElement("div");
 
         piece.classList.add("confetti");
 
@@ -169,6 +233,15 @@ function createConfetti() {
             colors[Math.floor(
                 Math.random() * colors.length
             )];
+
+        piece.style.width =
+            6 + Math.random() * 12 + "px";
+
+        piece.style.height =
+            8 + Math.random() * 16 + "px";
+
+        piece.style.animationDuration =
+            2 + Math.random() * 3 + "s";
 
         container.appendChild(piece);
 
