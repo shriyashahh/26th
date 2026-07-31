@@ -14,15 +14,7 @@ const fanfare = document.getElementById("fanfare");
 
 const kingVoice = document.getElementById("kingVoice");
 
-const run1 = document.getElementById("run1");
-
-const run2 = document.getElementById("run2");
-
-const footsteps = document.getElementById("footsteps");
-
-const giggle = document.getElementById("giggle");
-
-const cheer = document.getElementById("cheer");
+// STEP 1: Freeze battle
 
 setTimeout(() => {
 
@@ -38,15 +30,17 @@ setTimeout(() => {
 
     speech.style.opacity = "1";
 
-    setTimeout(() => {
-
-        kingVoice.play();
-
-    }, 1200);
-
 }, 3000);
 
-/* AFTER KING FINISHES */
+// STEP 2: Play king voice
+
+setTimeout(() => {
+
+    kingVoice.play();
+
+}, 4200);
+
+// STEP 3: Move king to top and change background
 
 setTimeout(() => {
 
@@ -60,63 +54,4 @@ setTimeout(() => {
 
     king.classList.add("king-top");
 
-    cheer.play();
-
-    startGoblins();
-
-}, 10000);
-
-function startGoblins() {
-
-    document.querySelectorAll(".balloon").forEach(
-
-        (goblin, index) => {
-
-            setTimeout(() => {
-
-                goblin.style.opacity = "1";
-
-                goblin.style.animation =
-                    "rightToLeft 7s linear forwards";
-
-            }, index * 800);
-
-        }
-
-    );
-
-    document.querySelectorAll(".confetti").forEach(
-
-        (goblin, index) => {
-
-            setTimeout(() => {
-
-                goblin.style.opacity = "1";
-
-                goblin.style.animation =
-                    "diagonal 6s linear forwards";
-
-            }, index * 700);
-
-        }
-
-    );
-
-    setTimeout(() => {
-
-        run1.play();
-
-        footsteps.play();
-
-        giggle.play();
-
-        const cake = document.getElementById("cakeGoblin");
-
-        cake.style.opacity = "1";
-
-        cake.style.animation =
-            "leftToRight 8s linear forwards";
-
-    }, 2200);
-
-}
+}, 12000);
