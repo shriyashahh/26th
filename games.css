@@ -21,14 +21,14 @@ body {
     width: 100vw;
     height: 100vh;
 
+    position: relative;
+
     background: linear-gradient(
         to bottom,
-        #6ea8ff,
-        #2d5fd1,
-        #10203c
+        #68a7ff,
+        #2955c8,
+        #0f1b36
     );
-
-    position: relative;
 
 }
 
@@ -38,9 +38,9 @@ body {
 
     position: absolute;
 
-    width: 100%;
-
     top: 45%;
+
+    width: 100%;
 
     text-align: center;
 
@@ -48,7 +48,7 @@ body {
 
     font-size: 34px;
 
-    font-weight: 600;
+    font-weight: 700;
 
     letter-spacing: 2px;
 
@@ -56,7 +56,7 @@ body {
 
 }
 
-/* Dark overlay */
+/* Freeze overlay */
 
 #overlay {
 
@@ -76,7 +76,7 @@ body {
 
     position: absolute;
 
-    width: 300px;
+    width: 280px;
 
     left: 50%;
 
@@ -90,13 +90,13 @@ body {
 
 }
 
-/* Speech bubble */
+/* King's speech */
 
 #speech {
 
     position: absolute;
 
-    top: 70px;
+    top: 80px;
 
     left: 50%;
 
@@ -106,7 +106,7 @@ body {
 
     color: black;
 
-    padding: 15px 22px;
+    padding: 14px 20px;
 
     border-radius: 20px;
 
@@ -120,7 +120,51 @@ body {
 
 }
 
-/* Animation */
+/* Balloon goblin */
+
+#balloonGoblin {
+
+    position: absolute;
+
+    width: 140px;
+
+    left: -250px;
+
+    bottom: 70px;
+
+    opacity: 0;
+
+}
+
+/* Goblin speech */
+
+#goblinBubble {
+
+    position: absolute;
+
+    bottom: 250px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    color: black;
+
+    padding: 12px 18px;
+
+    border-radius: 18px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transition: 0.5s;
+
+}
 
 @keyframes pulse {
 
@@ -139,6 +183,22 @@ body {
     100% {
 
         transform: scale(1);
+
+    }
+
+}
+
+@keyframes goblinRun {
+
+    from {
+
+        left: -250px;
+
+    }
+
+    to {
+
+        left: 110%;
 
     }
 
