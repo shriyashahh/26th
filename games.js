@@ -25,15 +25,16 @@ window.onload = () => {
 
     fanfare.play();
 
-    // BATTLE FROZEN
+    // battle in progress → battle frozen
 
     setTimeout(() => {
 
         battleText.innerHTML = "❄️ BATTLE FROZEN ❄️";
+        battleText.style.top="24%";
 
     }, 900);
 
-    // KING SPEECH
+    // speech bubble
 
     setTimeout(() => {
 
@@ -43,7 +44,9 @@ window.onload = () => {
 
     }, 1700);
 
-    kingVoice.onended = () => {
+    // move to celebration scene after 7 seconds
+
+    setTimeout(() => {
 
         speech.style.opacity = "0";
 
@@ -56,6 +59,7 @@ window.onload = () => {
         setTimeout(() => {
 
             kingConfetti.style.opacity = "1";
+
             kingConfetti.classList.add("kingTop");
 
         }, 100);
@@ -64,13 +68,20 @@ window.onload = () => {
 
         startConfetti();
 
-        setTimeout(() => {
+        startGoblins();
 
-            startGoblins();
+    }, 7000);
 
-        }, 500);
-    };
 };
+    // KING SPEECH
+
+    setTimeout(() => {
+
+        speech.style.opacity = "1";
+
+        kingVoice.play();
+
+    }, 1700);
 
 function startGoblins() {
 
@@ -120,6 +131,10 @@ function startGoblins() {
         cakeGoblin.classList.add("bounce");
 
         giggle.play();
+        giggle.loop=true;
+        setTimeout(()=>{
+            giggle.pause();
+        },5000);
 
         setTimeout(() => {
 
