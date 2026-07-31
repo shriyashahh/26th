@@ -7,20 +7,20 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
 
     <title>Birthday Royale</title>
 
     <link rel="stylesheet" href="games.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div class="arena">
+    <div class="arena" id="arena">
 
         <div id="battleText">
 
@@ -30,11 +30,12 @@
 
         <div id="overlay"></div>
 
-        <img id="king"
-            src="assets/battle/king_stop.png">
+        <div id="spotlight"></div>
 
-        <img id="balloonGoblin"
-            src="assets/battle/goblin_balloon.png">
+        <!-- KING -->
+
+        <img id="king"
+             src="assets/battle/king_stop.png">
 
         <div id="speech">
 
@@ -42,22 +43,60 @@
 
         </div>
 
-        <div id="goblinBubble">
+        <!-- BALLOON GOBLINS -->
 
-            Birthday supplies incoming!! 🎈
+        <img class="balloon goblin1"
+             src="assets/battle/goblin_balloon.png">
 
-        </div>
+        <img class="balloon goblin2"
+             src="assets/battle/goblin_balloon.png">
+
+        <img class="balloon goblin3"
+             src="assets/battle/goblin_balloon.png">
+
+        <!-- CONFETTI GOBLINS -->
+
+        <img class="confetti confetti1"
+             src="assets/battle/goblin_confetti.png">
+
+        <img class="confetti confetti2"
+             src="assets/battle/goblin_confetti.png">
+
+        <img class="confetti confetti3"
+             src="assets/battle/goblin_confetti.png">
+
+        <img class="confetti confetti4"
+             src="assets/battle/goblin_confetti.png">
+
+        <!-- CAKE GOBLIN -->
+
+        <img id="cakeGoblin"
+             src="assets/battle/goblin_cake.png">
 
     </div>
 
+    <!-- AUDIO -->
+
     <audio id="fanfare"
-        src="assets/battle/announcement_fanfare.mp3.mpeg"></audio>
+           src="assets/battle/announcement_fanfare.mp3.mpeg"></audio>
 
     <audio id="kingVoice"
-        src="assets/battle/king_announcement.mp3.mpeg"></audio>
+           src="assets/battle/king_announcement.mp3.mpeg"></audio>
+
+    <audio id="run1"
+           src="assets/battle/cartoon_running.mp3.mpeg"></audio>
+
+    <audio id="run2"
+           src="assets/battle/cartoon_running2.mp3.mpeg"></audio>
 
     <audio id="footsteps"
-        src="assets/battle/cartoon_running.mp3.mpeg"></audio>
+           src="assets/battle/cartoon_footsteps.mp3.mpeg"></audio>
+
+    <audio id="giggle"
+           src="assets/battle/goblin_giggle.wav"></audio>
+
+    <audio id="cheer"
+           src="assets/battle/yay_cheering.mp3.mpeg"></audio>
 
     <script src="games.js"></script>
 
