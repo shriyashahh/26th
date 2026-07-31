@@ -1,185 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background: #000;
-}
-
-.arena {
-
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-
-    overflow: hidden;
-
-    background:
-
-        radial-gradient(circle at center,
-
-            #684dff 0%,
-            #372f8f 35%,
-            #17153d 70%,
-            #070c1f 100%);
-}
-
-.arena.party {
-
-    background:
-
-        radial-gradient(circle at center,
-
-            #7a61ff 0%,
-            #4335b0 35%,
-            #1c1a55 70%,
-            #070c1f 100%);
-}
-
-#overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        rgba(0, 0, 0, 0.2);
-}
-
-
-/* BATTLE TEXT */
-
 #battleText {
 
     position: absolute;
 
-    top: 36%;
+    top: 35%;
+
     left: 50%;
 
     transform: translate(-50%, -50%);
 
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 28px;
 
-    font-size: 42px;
+    font-weight: 700;
 
-    font-weight: 900;
+    letter-spacing: 3px;
 
-    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.22);
 
-    z-index: 90;
+    text-shadow: none;
 
-    text-shadow:
+    z-index: 20;
 
-        0 0 10px rgba(255, 255, 255, 0.25);
-
-    transition: 1s;
-
-    animation: battlePulse 1.5s infinite;
+    transition: all 0.8s ease;
 }
-
-@keyframes battlePulse {
-
-    0% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-    }
-
-    50% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.05);
-    }
-
-    100% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-    }
-}
-
-
-/* KING */
-
-#king,
-#kingConfetti {
-
-    position: absolute;
-
-    width: 230px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    opacity: 0;
-
-    z-index: 100;
-
-    transition: all 1.5s ease;
-
-    filter:
-
-        drop-shadow(0 0 35px rgba(255, 220, 100, 1))
-        drop-shadow(0 0 90px rgba(255, 210, 0, 0.7));
-}
-
-#kingConfetti {
-
-    display: none;
-}
-
-.kingTop {
-
-    top: 10% !important;
-
-    width: 170px !important;
-}
-
-
-/* SPEECH */
-
-#speech {
-
-    position: absolute;
-
-    top: 72%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: white;
-
-    color: black;
-
-    padding: 18px 28px;
-
-    border-radius: 20px;
-
-    font-size: 26px;
-
-    font-weight: bold;
-
-    opacity: 0;
-
-    z-index: 200;
-
-    transition: .8s;
-}
-
-
-/* GOBLINS */
 
 .balloon,
 .confettiGoblin,
@@ -187,130 +29,135 @@ body {
 
     position: absolute;
 
-    width: 180px;
-
     opacity: 0;
 
     z-index: 50;
 
-    transition: all 2.8s ease;
+    transition: all 3.8s cubic-bezier(.22, 1, .36, 1);
 
     filter:
+        drop-shadow(0 12px 20px rgba(0, 0, 0, 0.7));
+}
 
-        drop-shadow(0 12px 25px rgba(0, 0, 0, .75));
+.balloon {
+
+    width: 180px;
+}
+
+.confettiGoblin {
+
+    width: 160px;
 }
 
 #cakeGoblin {
 
-    width: 230px;
+    width: 220px;
 }
 
-
-/* START POSITIONS */
+/* START */
 
 .b1 {
 
-    top: -350px;
-    left: 5%;
+    top: -300px;
+    left: 2%;
 }
 
 .b2 {
 
-    top: -450px;
-    left: 82%;
+    top: -320px;
+    left: 80%;
 }
 
 .b3 {
 
-    top: -420px;
-    left: 60%;
+    top: -350px;
+    left: 58%;
 }
 
 .c1 {
 
     top: 45%;
-    left: -300px;
+    left: -250px;
 }
 
 .c2 {
 
-    top: 60%;
-    left: -300px;
+    top: 68%;
+    left: -250px;
 }
 
 .c3 {
 
-    top: 45%;
-    right: -300px;
+    top: 48%;
+    right: -250px;
 }
 
 .c4 {
 
     top: 62%;
-    right: -300px;
+    right: -250px;
 }
 
 #cakeGoblin {
 
     top: 55%;
-    left: -450px;
+    left: -350px;
 }
 
-
-/* FINAL POSITIONS */
-
-.balloon.show {
-
-    opacity: 1;
-}
+/* FINAL */
 
 .b1.show {
 
-    top: 28%;
+    opacity: 1;
+
+    top: 33%;
+
     left: 10%;
 }
 
 .b2.show {
 
-    top: 42%;
-    left: 78%;
+    opacity: 1;
+
+    top: 45%;
+
+    left: 74%;
 }
 
 .b3.show {
 
-    top: 58%;
-    left: 60%;
+    opacity: 1;
+
+    top: 60%;
+
+    left: 55%;
 }
 
 .c1.show {
 
     opacity: 1;
 
-    top: 48%;
-    left: 24%;
+    left: 22%;
 }
 
 .c2.show {
 
     opacity: 1;
 
-    top: 68%;
-    left: 6%;
+    left: 8%;
 }
 
 .c3.show {
 
     opacity: 1;
 
-    top: 50%;
-    right: 25%;
+    right: 24%;
 }
 
 .c4.show {
 
     opacity: 1;
 
-    top: 68%;
     right: 2%;
 }
 
@@ -318,101 +165,25 @@ body {
 
     opacity: 1;
 
-    top: 54%;
     left: 50%;
 
     transform: translateX(-50%);
 }
 
+.bounce {
 
-/* RUNNING */
-
-.running {
-
-    animation:
-
-        running .16s infinite alternate,
-
-        bounce .8s infinite ease-in-out;
-}
-
-@keyframes running {
-
-    from {
-
-        transform:
-
-            translateY(0px)
-
-            rotate(-2deg);
-    }
-
-    to {
-
-        transform:
-
-            translateY(-10px)
-
-            rotate(2deg);
-    }
+    animation: bounce .7s infinite alternate;
 }
 
 @keyframes bounce {
 
-    0% {
-
-        margin-top: 0;
-    }
-
-    50% {
-
-        margin-top: -10px;
-    }
-
-    100% {
-
-        margin-top: 0;
-    }
-}
-
-
-/* CONFETTI */
-
-.confetti {
-
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    z-index: 500;
-
-    animation: confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall {
-
     from {
 
-        transform:
-
-            translateY(-30px)
-
-            rotate(0deg);
-
-        opacity: 1;
+        transform: translateY(0px);
     }
 
     to {
 
-        transform:
-
-            translateY(110vh)
-
-            rotate(720deg);
-
-        opacity: 0;
+        transform: translateY(-12px);
     }
 }
