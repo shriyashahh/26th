@@ -1,6 +1,9 @@
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
 
+const run1 = document.getElementById("run1");
+const run2 = document.getElementById("run2");
+
 const king = document.getElementById("king");
 const kingConfetti = document.getElementById("kingConfetti");
 
@@ -16,9 +19,9 @@ const cakeGoblin = document.getElementById("cakeGoblin");
 
 window.onload = async () => {
 
-    await fanfare.play();
-
     king.style.opacity = "1";
+
+    fanfare.play();
 
     setTimeout(() => {
 
@@ -30,7 +33,7 @@ window.onload = async () => {
 
     kingVoice.onended = () => {
 
-        battleText.style.opacity = "0";
+        battleText.style.display = "none";
 
         speech.style.opacity = "0";
 
@@ -42,35 +45,53 @@ window.onload = async () => {
 
         kingConfetti.style.opacity = "1";
 
-        kingConfetti.classList.add("king-top");
+        kingConfetti.classList.add("kingTop");
 
         startConfetti();
 
-        startGoblins();
+        setTimeout(() => {
+
+            startGoblins();
+
+        }, 600);
     };
 };
 
 function startGoblins() {
 
-    balloons.forEach((goblin, i) => {
+    run1.loop = true;
+    run2.loop = true;
+
+    run1.volume = 0.35;
+    run2.volume = 0.25;
+
+    run1.play();
+
+    setTimeout(() => {
+
+        run2.play();
+
+    }, 700);
+
+    balloons.forEach((goblin, index) => {
 
         setTimeout(() => {
 
             goblin.classList.add("show");
             goblin.classList.add("running");
 
-        }, i * 500);
+        }, index * 500);
 
     });
 
-    confettiGoblins.forEach((goblin, i) => {
+    confettiGoblins.forEach((goblin, index) => {
 
         setTimeout(() => {
 
             goblin.classList.add("show");
             goblin.classList.add("running");
 
-        }, i * 350);
+        }, index * 350);
 
     });
 
@@ -88,15 +109,28 @@ function startConfetti() {
 
         const confetti = document.createElement("div");
 
-        confetti.classList.add("confetti");
+        confetti.className = "confetti";
 
-        confetti.style.left = Math.random() * 100 + "vw";
+        const colors = [
+
+            "#ffeb3b",
+            "#4caf50",
+            "#2196f3",
+            "#ff4081",
+            "#ff9800"
+        ];
 
         confetti.style.background =
 
-            ["#ffeb3b", "#4caf50", "#2196f3", "#ff4081", "#ff9800"]
+            colors[Math.floor(Math.random() * colors.length)];
 
-            [Math.floor(Math.random() * 5)];
+        const center = window.innerWidth / 2;
+
+        confetti.style.left =
+
+            center - 140 + Math.random() * 280 + "px";
+
+        confetti.style.top = "-20px";
 
         document.body.appendChild(confetti);
 
@@ -106,5 +140,5 @@ function startConfetti() {
 
         }, 3000);
 
-    }, 120);
+    }, 100);
 }
