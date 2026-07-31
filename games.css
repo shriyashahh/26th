@@ -192,13 +192,13 @@ body {
 
     from {
 
-        left: -250px;
+        right: -250px;
 
     }
 
     to {
 
-        left: 110%;
+        right: 110%;
 
     }
 
