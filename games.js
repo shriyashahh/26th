@@ -3,7 +3,9 @@ const kingVoice = document.getElementById("kingVoice");
 
 const run1 = document.getElementById("run1");
 const run2 = document.getElementById("run2");
+
 const giggle = document.getElementById("giggle");
+const yay = document.getElementById("yay");
 
 const king = document.getElementById("king");
 const kingConfetti = document.getElementById("kingConfetti");
@@ -15,134 +17,152 @@ const arena = document.getElementById("arena");
 
 const balloons = document.querySelectorAll(".balloon");
 const confettiGoblins = document.querySelectorAll(".confettiGoblin");
-
 const cakeGoblin = document.getElementById("cakeGoblin");
 
 window.onload = () => {
-
-    battleText.innerHTML = "⚔️ BATTLE IN PROGRESS ⚔️";
 
     king.style.opacity = "1";
 
     fanfare.play();
 
+    // BATTLE FROZEN
+
     setTimeout(() => {
 
-        kingVoice.play();
+        battleText.innerHTML = "❄️ BATTLE FROZEN ❄️";
+
+    }, 900);
+
+    // KING SPEECH
+
+    setTimeout(() => {
+
         speech.style.opacity = "1";
 
-    }, 1200);
+        kingVoice.play();
+
+    }, 1700);
 
     kingVoice.onended = () => {
 
-        battleText.innerHTML = "❄️ BATTLE FREEZE ❄️";
-
         speech.style.opacity = "0";
 
-        setTimeout(() => {
-
-            battleText.style.opacity = "0";
-
-        }, 1700);
+        battleText.style.opacity = "0";
 
         king.style.opacity = "0";
 
+        kingConfetti.style.display = "block";
+
         setTimeout(() => {
 
-            king.style.display = "none";
-
-            kingConfetti.style.display = "block";
-
             kingConfetti.style.opacity = "1";
-
             kingConfetti.classList.add("kingTop");
 
-            arena.classList.add("party");
+        }, 100);
 
-            startConfetti();
+        arena.classList.add("party");
 
-            setTimeout(() => {
+        startConfetti();
 
-                startGoblins();
+        setTimeout(() => {
 
-            }, 400);
+            startGoblins();
 
-        }, 700);
-
+        }, 500);
     };
 };
-
 
 function startGoblins() {
 
     run1.loop = true;
     run2.loop = true;
 
-    run1.volume = 0.35;
+    run1.volume = 0.4;
     run2.volume = 0.25;
 
     run1.play();
 
-    setTimeout(() => {
-
-        run2.play();
-
-    }, 700);
-
-    setTimeout(() => {
-
-        giggle.volume = 0.45;
-        giggle.play();
-
-    }, 1500);
-
+    setTimeout(() => run2.play(), 600);
 
     balloons.forEach((goblin, index) => {
 
         setTimeout(() => {
 
             goblin.classList.add("show");
-            goblin.classList.add("running");
 
-        }, index * 450);
+        }, index * 350);
 
     });
-
 
     confettiGoblins.forEach((goblin, index) => {
 
         setTimeout(() => {
 
             goblin.classList.add("show");
-            goblin.classList.add("running");
 
-        }, 500 + index * 350);
+        }, index * 250);
 
     });
-
 
     setTimeout(() => {
 
         cakeGoblin.classList.add("show");
-        cakeGoblin.classList.add("running");
 
-    }, 900);
-
+    }, 700);
 
     setTimeout(() => {
 
         run1.pause();
         run2.pause();
 
-        run1.currentTime = 0;
-        run2.currentTime = 0;
+        balloons.forEach(g => g.classList.add("bounce"));
+        confettiGoblins.forEach(g => g.classList.add("bounce"));
+        cakeGoblin.classList.add("bounce");
 
-        document.querySelectorAll(
-            ".balloon, .confettiGoblin, #cakeGoblin"
-        ).forEach(goblin => {
+        giggle.play();
 
-            goblin.classList.remove("running");
+        setTimeout(() => {
 
-        });
+            yay.play();
 
-    }, 420
+        }, 400);
+
+    }, 3800);
+}
+
+function startConfetti() {
+
+    setInterval(() => {
+
+        const confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        const colors = [
+
+            "#ffd700",
+            "#ff5e5e",
+            "#4caf50",
+            "#00bfff",
+            "#ff77ff"
+
+        ];
+
+        confetti.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.left =
+            (window.innerWidth / 2 - 180 + Math.random() * 360) + "px";
+
+        confetti.style.top = "-20px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        }, 3500);
+
+    }, 80);
+}
