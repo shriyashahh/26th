@@ -1,1 +1,145 @@
+* {
 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    overflow: hidden;
+
+    font-family: Inter, sans-serif;
+
+    background: #000;
+
+}
+
+.arena {
+
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(
+        to bottom,
+        #6ea8ff,
+        #2d5fd1,
+        #10203c
+    );
+
+    position: relative;
+
+}
+
+/* Battle text */
+
+#battleText {
+
+    position: absolute;
+
+    width: 100%;
+
+    top: 45%;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    animation: pulse 1s infinite;
+
+}
+
+/* Dark overlay */
+
+#overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0);
+
+    transition: 1s;
+
+}
+
+/* King */
+
+#king {
+
+    position: absolute;
+
+    width: 300px;
+
+    left: 50%;
+
+    bottom: -450px;
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    transition: 1s ease;
+
+}
+
+/* Speech bubble */
+
+#speech {
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    color: black;
+
+    padding: 15px 22px;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transition: 1s;
+
+}
+
+/* Animation */
+
+@keyframes pulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
