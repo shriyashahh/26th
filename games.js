@@ -17,7 +17,9 @@ const confettiGoblins = document.querySelectorAll(".confettiGoblin");
 
 const cakeGoblin = document.getElementById("cakeGoblin");
 
-window.onload = async () => {
+window.onload = () => {
+
+    battleText.innerHTML = "⚔️ BATTLE IN PROGRESS ⚔️";
 
     king.style.opacity = "1";
 
@@ -33,28 +35,38 @@ window.onload = async () => {
 
     kingVoice.onended = () => {
 
-        battleText.style.display = "none";
-
-        speech.style.opacity = "0";
-
-        arena.classList.add("party");
-
-        king.style.opacity = "0";
-
-        kingConfetti.style.display = "block";
-
-        kingConfetti.style.opacity = "1";
-
-        kingConfetti.classList.add("kingTop");
-
-        startConfetti();
+        battleText.innerHTML = "❄️ BATTLE FREEZE ❄️";
 
         setTimeout(() => {
 
+            battleText.style.opacity = "0";
+
+        }, 1800);
+
+        speech.style.opacity = "0";
+
+        king.style.opacity = "0";
+
+        setTimeout(() => {
+
+            king.style.display = "none";
+
+            kingConfetti.style.display = "block";
+
+            kingConfetti.style.opacity = "1";
+
+            kingConfetti.classList.add("kingTop");
+
+            arena.classList.add("party");
+
+            startConfetti();
+
             startGoblins();
 
-        }, 600);
+        }, 700);
+
     };
+
 };
 
 function startGoblins() {
@@ -71,74 +83,81 @@ function startGoblins() {
 
         run2.play();
 
-    }, 700);
+    }, 800);
+
 
     balloons.forEach((goblin, index) => {
 
         setTimeout(() => {
 
             goblin.classList.add("show");
-            goblin.classList.add("running");
 
-        }, index * 500);
+        }, index * 400);
 
     });
+
 
     confettiGoblins.forEach((goblin, index) => {
 
         setTimeout(() => {
 
             goblin.classList.add("show");
-            goblin.classList.add("running");
 
-        }, index * 350);
+        }, 700 + index * 350);
 
     });
+
 
     setTimeout(() => {
 
         cakeGoblin.classList.add("show");
-        cakeGoblin.classList.add("running");
 
-    }, 900);
+    }, 1200);
+
 }
 
 function startConfetti() {
 
     setInterval(() => {
 
-        const confetti = document.createElement("div");
+        const piece = document.createElement("div");
 
-        confetti.className = "confetti";
+        piece.className = "confetti";
 
         const colors = [
 
-            "#ffeb3b",
+            "#ffd700",
+            "#ff4081",
             "#4caf50",
             "#2196f3",
-            "#ff4081",
             "#ff9800"
+
         ];
 
-        confetti.style.background =
+        piece.style.background =
 
             colors[Math.floor(Math.random() * colors.length)];
 
         const center = window.innerWidth / 2;
 
-        confetti.style.left =
+        piece.style.left =
 
-            center - 140 + Math.random() * 280 + "px";
+            center - 250 + Math.random() * 500 + "px";
 
-        confetti.style.top = "-20px";
+        piece.style.top = "-20px";
 
-        document.body.appendChild(confetti);
+        piece.style.transform =
+
+            `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(piece);
 
         setTimeout(() => {
 
-            confetti.remove();
+            piece.remove();
 
-        }, 3000);
+        }, 3500);
 
-    }, 100);
+    }, 80);
+
 }
