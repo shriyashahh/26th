@@ -6,114 +6,137 @@
 
 body {
     overflow: hidden;
-    background: black;
     font-family: Arial, sans-serif;
+    background: #000;
 }
 
 .arena {
     position: relative;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 
     background:
         radial-gradient(circle at center,
-            #3949ab 0%,
-            #1d235d 45%,
-            #0b102e 100%);
-
-    overflow: hidden;
-
-    transition: background 1.5s ease;
+            #5b4dff 0%,
+            #2b236e 45%,
+            #0b1025 100%);
 }
-
-/* arena after speech */
 
 .arena.party {
     background:
         radial-gradient(circle at center,
-            #673ab7 0%,
-            #2c1d72 45%,
-            #120827 100%);
+            #6f59ff 0%,
+            #34227f 50%,
+            #101633 100%);
 }
 
 #overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.35);
 }
 
-/* battle text */
+/* BATTLE TEXT */
 
 #battleText {
+
     position: absolute;
-    top: 45%;
+
+    top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
 
     color: white;
-    font-size: 48px;
+
+    font-size: 54px;
+
     font-weight: bold;
 
-    z-index: 10;
+    z-index: 999;
 
-    animation: pulse 1s infinite;
+    text-shadow:
+
+        0 0 15px gold,
+        0 0 40px gold;
+
+    animation: battlePulse 1s infinite;
 }
 
-@keyframes pulse {
+@keyframes battlePulse {
 
-    0%,
-    100% {
-        transform: translate(-50%, -50%) scale(1);
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
     }
 
     50% {
-        transform: translate(-50%, -50%) scale(1.08);
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
     }
 }
 
-/* king */
+/* KING */
 
 #king,
 #kingConfetti {
 
     position: absolute;
 
-    width: 230px;
+    width: 240px;
 
     left: 50%;
     top: 50%;
 
     transform: translate(-50%, -50%);
 
-    z-index: 20;
+    z-index: 100;
 
     opacity: 0;
+
+    filter:
+
+        drop-shadow(0 0 40px rgba(255, 221, 100, .9))
+        drop-shadow(0 0 80px rgba(255, 221, 100, .5));
 
     transition: all 1.5s ease;
 }
 
 #kingConfetti {
+
     display: none;
 }
 
-/* king move */
+.kingTop {
 
-.king-top {
-
-    top: 12% !important;
+    top: 11% !important;
 
     width: 170px !important;
 }
 
-/* speech */
+/* SPEECH */
 
 #speech {
 
     position: absolute;
 
-    top: 72%;
-
     left: 50%;
+    top: 72%;
 
     transform: translateX(-50%);
 
@@ -121,47 +144,22 @@ body {
 
     color: black;
 
-    padding: 18px 24px;
+    padding: 18px 30px;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
     font-size: 26px;
 
     font-weight: bold;
 
-    z-index: 25;
-
     opacity: 0;
+
+    z-index: 200;
 
     transition: .8s;
 }
 
-/* confetti */
-
-.confetti {
-
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-
-    from {
-        transform: translateY(-50px) rotate(0deg);
-    }
-
-    to {
-        transform: translateY(120vh) rotate(720deg);
-    }
-}
-
-/* goblins */
+/* GOBLINS */
 
 .balloon,
 .confettiGoblin,
@@ -169,68 +167,71 @@ body {
 
     position: absolute;
 
-    width: 180px;
+    width: 190px;
 
     opacity: 0;
 
-    z-index: 15;
+    z-index: 50;
 
-    transition: all 3.5s ease;
+    filter:
+        drop-shadow(0 12px 24px rgba(0, 0, 0, .65));
+
+    transition: all 3s linear;
 }
 
-/* starting positions */
+/* START POSITIONS */
 
 .b1 {
 
-    top: -300px;
-    left: 8%;
+    top: -450px;
+    left: 5%;
 }
 
 .b2 {
 
-    top: -300px;
-    left: 72%;
+    top: -500px;
+    left: 75%;
 }
 
 .b3 {
 
-    top: -300px;
-    left: 40%;
+    top: -420px;
+    left: 45%;
 }
 
 .c1 {
 
-    top: 58%;
+    top: 55%;
     left: -300px;
 }
 
 .c2 {
 
-    top: 78%;
+    top: 75%;
     left: -300px;
 }
 
 .c3 {
 
-    top: 62%;
+    top: 58%;
     right: -300px;
 }
 
 .c4 {
 
-    top: 82%;
+    top: 78%;
     right: -300px;
 }
 
 #cakeGoblin {
 
-    top: 66%;
-    left: -350px;
-
     width: 240px;
+
+    top: 65%;
+    left: -400px;
 }
 
-/* final positions */
+/* FINAL POSITIONS */
 
 .balloon.show {
 
@@ -239,44 +240,44 @@ body {
 
 .b1.show {
 
-    top: 42%;
+    top: 35%;
     left: 8%;
 }
 
 .b2.show {
 
-    top: 60%;
-    left: 72%;
+    top: 50%;
+    left: 78%;
 }
 
 .b3.show {
 
     top: 72%;
-    left: 42%;
+    left: 65%;
 }
 
 .c1.show {
 
     opacity: 1;
-    left: 18%;
+    left: 20%;
 }
 
 .c2.show {
 
     opacity: 1;
-    left: 8%;
+    left: 5%;
 }
 
 .c3.show {
 
     opacity: 1;
-    right: 18%;
+    right: 20%;
 }
 
 .c4.show {
 
     opacity: 1;
-    right: 6%;
+    right: 3%;
 }
 
 #cakeGoblin.show {
@@ -288,20 +289,65 @@ body {
     transform: translateX(-50%);
 }
 
-/* running bounce */
+/* RUNNING EFFECT */
 
 .running {
 
-    animation: running 0.35s infinite alternate;
+    animation: running .18s infinite alternate;
 }
 
 @keyframes running {
 
     from {
-        transform: translateY(0);
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+
     }
 
     to {
-        transform: translateY(-14px);
+
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+
+    }
+}
+
+/* CONFETTI */
+
+.confetti {
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    z-index: 500;
+
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    from {
+
+        transform:
+            translateY(-40px)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
     }
 }
