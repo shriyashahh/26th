@@ -100,7 +100,7 @@ function startKingSequence() {
 
     };
 
-}
+};
 
 
 // ---------------- MOVE KING ----------------
