@@ -103,7 +103,7 @@ function moveKing() {
 
         startGoblins();
 
-    }, 1800);
+    }, 300);
 }
 
 
