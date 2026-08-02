@@ -443,7 +443,7 @@ body {
 #celebrationScreen.show {
 
     opacity: 1;
-    pointer-events:auto;
+    pointer-events:all;
 }
 
 /* ---------- SHAKE ---------- */
