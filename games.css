@@ -58,13 +58,13 @@ body {
     width: 520px;
 
     left: 50%;
-    top: 52%;
+    top: 60%;
 
     transform: translate(-50%, -50%);
 
     opacity: 0;
 
-    z-index: 90;
+    z-index: 110;
 
     transition: 2.5s;
 }
