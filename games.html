@@ -18,6 +18,8 @@
 
     <div class="arena" id="arena">
 
+        <!-- Overlay -->
+
         <div id="overlay"></div>
 
         <!-- Battle text -->
@@ -28,17 +30,21 @@
 
         </div>
 
+        <!-- Confetti container -->
+
+        <div id="confettiContainer"></div>
+
         <!-- King -->
 
-        <img
-            id="king"
+        <img id="king"
             src="assets/battle/king_stop.png">
 
-        <img
-            id="kingConfetti"
+        <!-- King celebration image -->
+
+        <img id="kingConfetti"
             src="assets/battle/king_confetti.png">
 
-        <!-- Speech -->
+        <!-- Speech bubble -->
 
         <div id="speech">
 
@@ -46,20 +52,103 @@
 
         </div>
 
-        <!-- Confetti -->
-
-        <div id="confettiContainer"></div>
-
         <!-- Balloon goblins -->
 
-        <img
-            class="balloon b1"
+        <img class="balloon b1"
             src="assets/battle/goblin_balloon.png">
 
-        <img
-            class="balloon b2"
+        <img class="balloon b2"
             src="assets/battle/goblin_balloon.png">
 
-        <img
-            class="balloon b3"
-            src="assets/battle/goblin_balloon
+        <img class="balloon b3"
+            src="assets/battle/goblin_balloon.png">
+
+        <!-- Confetti goblins -->
+
+        <img class="confettiGoblin c1"
+            src="assets/battle/goblin_confetti.png">
+
+        <img class="confettiGoblin c2"
+            src="assets/battle/goblin_confetti.png">
+
+        <img class="confettiGoblin c3"
+            src="assets/battle/goblin_confetti.png">
+
+        <img class="confettiGoblin c4"
+            src="assets/battle/goblin_confetti.png">
+
+        <!-- Cake goblin -->
+
+        <img id="cakeGoblin"
+            src="assets/battle/goblin_cake.png">
+
+        <!-- Fallen cake -->
+
+        <img id="fallenCake"
+            src="assets/battle/cake_fallen.png">
+
+        <!-- Extra panic goblin -->
+
+        <img id="extraGoblin"
+            src="assets/battle/goblin_panic.png">
+
+        <!-- Miner -->
+
+        <img id="miner"
+            src="assets/battle/miner_stealing.png">
+
+        <!-- Goblin bubble -->
+
+        <div id="goblinBubble">
+
+            Who gave cake responsibility to Level 2 Goblin?!
+
+        </div>
+
+        <!-- Final celebration screen -->
+
+        <img id="celebrationScreen"
+            src="assets/battle/goblin_celebration.png">
+
+    </div>
+
+    <!-- AUDIO -->
+
+    <audio id="fanfare"
+        src="assets/battle/announcement_fanfare.mp3.mpeg"></audio>
+
+    <audio id="kingVoice"
+        src="assets/battle/king_announcement.mp3.mpeg"></audio>
+
+    <audio id="run1"
+        src="assets/battle/cartoon_running.mp3.mpeg"></audio>
+
+    <audio id="run2"
+        src="assets/battle/cartoon_running2.mp3.mpeg"></audio>
+
+    <audio id="giggle"
+        src="assets/battle/goblin_giggle.wav"></audio>
+
+    <audio id="yay"
+        src="assets/battle/yay_cheering.mp3.mpeg"></audio>
+
+    <audio id="splat"
+        src="assets/battle/cartoon_splat.mp3.mpeg"></audio>
+
+    <audio id="digging"
+        src="assets/battle/digging.mp3.mpeg"></audio>
+
+    <audio id="minerLaugh"
+        src="assets/battle/miner_giggle.wav"></audio>
+
+    <audio id="crowd"
+        src="assets/battle/crowd_cheer.mp3.mpeg"></audio>
+
+    <audio id="whoosh"
+        src="assets/battle/whoosh_thump.mp3.mpeg"></audio>
+
+    <script src="games.js"></script>
+
+</body>
+
+</html>
