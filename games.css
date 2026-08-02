@@ -419,8 +419,8 @@ body {
     
     position: fixed;
     inset:0;
-    display:none;
-    justify-conttent:center;
+    display:flex;
+    justify-content:center;
     align-items:center;
     
     background: radial-gradient(
@@ -435,9 +435,10 @@ body {
 }
 
 #celebrationScreen img {
-    width:45%;
-    max-width:550px;
+    width:52%;
+    max-width:650px;
     object-fit:contain;
+    transform:scale(1.08);
 }
 
 #celebrationScreen.show {
