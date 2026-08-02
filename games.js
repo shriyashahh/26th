@@ -1,10 +1,3 @@
-const fallenCake=document.getElementById("fallenCake");
-const panicGoblin = document.getElementById("panicGoblin");
-
-const splat = document.getElementById("splat");
-
-let confettiInterval;
-
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
 
@@ -14,17 +7,30 @@ const run2 = document.getElementById("run2");
 const giggle = document.getElementById("giggle");
 const yay = document.getElementById("yay");
 
+const splat = document.getElementById("splat");
+
+const dig = document.getElementById("dig");
+
+const minerGiggle = document.getElementById("minerGiggle");
+
 const king = document.getElementById("king");
 const kingConfetti = document.getElementById("kingConfetti");
 
 const speech = document.getElementById("speech");
 const battleText = document.getElementById("battleText");
 
-const arena = document.getElementById("arena");
+const arena = document.querySelector(".arena");
 
 const balloons = document.querySelectorAll(".balloon");
 const confettiGoblins = document.querySelectorAll(".confettiGoblin");
+
 const cakeGoblin = document.getElementById("cakeGoblin");
+
+const fallenCake = document.getElementById("fallenCake");
+
+const miner = document.getElementById("miner");
+
+let confettiInterval;
 
 window.onload = () => {
 
@@ -32,16 +38,11 @@ window.onload = () => {
 
     fanfare.play();
 
-    // battle in progress → battle frozen
-
     setTimeout(() => {
 
         battleText.innerHTML = "❄️ BATTLE FROZEN ❄️";
-        battleText.style.top="24%";
 
-    }, 900);
-
-    // speech bubble
+    }, 1000);
 
     setTimeout(() => {
 
@@ -49,9 +50,7 @@ window.onload = () => {
 
         kingVoice.play();
 
-    }, 1700);
-
-    // move to celebration scene after 7 seconds
+    }, 1800);
 
     setTimeout(() => {
 
@@ -62,16 +61,10 @@ window.onload = () => {
         king.style.opacity = "0";
 
         kingConfetti.style.display = "block";
+
         kingConfetti.classList.add("kingTop");
-        kingConfetti.style.opacity="1";
 
-        setTimeout(() => {
-
-            kingConfetti.style.opacity = "1";
-
-            kingConfetti.classList.add("kingTop");
-
-        }, 100);
+        kingConfetti.style.opacity = "1";
 
         arena.classList.add("party");
 
@@ -80,38 +73,23 @@ window.onload = () => {
         startGoblins();
 
     }, 7000);
-
 };
 
 function startGoblins() {
 
-    run1.loop = true;
-    run2.loop = true;
-
-    run1.volume = 0.4;
-    run2.volume = 0.25;
-
     run1.play();
 
-    setTimeout(() => run2.play(), 600);
+    setTimeout(() => run2.play(), 500);
 
-    balloons.forEach((goblin, index) => {
+    balloons.forEach((g, i) => {
 
-        setTimeout(() => {
-
-            goblin.classList.add("show");
-
-        }, index * 350);
+        setTimeout(() => g.classList.add("show"), i * 300);
 
     });
 
-    confettiGoblins.forEach((goblin, index) => {
+    confettiGoblins.forEach((g, i) => {
 
-        setTimeout(() => {
-
-            goblin.classList.add("show");
-
-        }, index * 250);
+        setTimeout(() => g.classList.add("show"), i * 250);
 
     });
 
@@ -123,127 +101,92 @@ function startGoblins() {
 
     setTimeout(() => {
 
-        run1.pause();
-        run2.pause();
-        run1.currentTime=0;
-        run2.currentTime=0;
-
         balloons.forEach(g => g.classList.add("bounce"));
+
         confettiGoblins.forEach(g => g.classList.add("bounce"));
+
         cakeGoblin.classList.add("bounce");
 
-        setTimeout(()=>{
-            balloons.forEach(g=>g.classList.remove("bounce"));
-            confettiGoblins.forEach(g=>g.classList.remove("bounce"));
-            cakeGoblin.classList.remove("bounce");
-        },2000);
-
         giggle.play();
-        giggle.loop=true;
-        setTimeout(()=>{
-            giggle.pause();
-        },5000);
 
-        setTimeout(() => {
+        yay.play();
 
-            yay.play();
+    }, 3500);
 
-        }, 400);
-
-        setTimeout(()=>{
-            dropCake();
-        },1800);
-
-    }, 3800);
+    setTimeout(dropCake, 5500);
 }
 
 function startConfetti() {
 
-   confettiInterval= setInterval(() => {
+    confettiInterval = setInterval(() => {
 
-        const confetti = document.createElement("div");
+        const c = document.createElement("div");
 
-        confetti.className = "confetti";
+        c.className = "confetti";
 
-        const colors = [
+        c.style.left = (window.innerWidth / 2 - 180 + Math.random() * 360) + "px";
 
-            "#ffd700",
-            "#ff5e5e",
-            "#4caf50",
-            "#00bfff",
-            "#ff77ff"
+        c.style.top = "-20px";
 
-        ];
+        c.style.background =
 
-        confetti.style.background =
-            colors[Math.floor(Math.random() * colors.length)];
+            ["gold", "#ff5e5e", "#00bfff", "#4caf50"][
+                Math.floor(Math.random() * 4)
+            ];
 
-        confetti.style.left =
-            (window.innerWidth / 2 - 180 + Math.random() * 360) + "px";
+        document.body.appendChild(c);
 
-        confetti.style.top = "-20px";
+        setTimeout(() => c.remove(), 3000);
 
-        document.body.appendChild(confetti);
-
-        setTimeout(() => {
-
-            confetti.remove();
-
-        }, 3500);
-
-    }, 80);
+    }, 90);
 }
 
 function dropCake() {
 
-    // stop confetti
-
     clearInterval(confettiInterval);
 
-    // stop sounds
-
     run1.pause();
+
     run2.pause();
 
     giggle.pause();
 
     yay.pause();
 
-    // stop bouncing
+    splat.play();
 
     balloons.forEach(g => g.classList.remove("bounce"));
 
-    confettiGoblins.forEach(g => g.classList.remove("bounce"));
+    confettiGoblins.forEach(g => {
 
-    cakeGoblin.classList.remove("bounce");
+        g.classList.remove("bounce");
 
-    // splat
+        g.src = "assets/battle/goblin_panick.png";
 
-    splat.play();
-
-    // remove cake goblin
+    });
 
     cakeGoblin.style.opacity = "0";
 
-    // show fallen cake
-
     fallenCake.classList.add("show");
 
-    // PANIC
+    setTimeout(showMiner, 1800);
+}
+
+function showMiner() {
+
+    dig.play();
+
+    miner.classList.add("show");
 
     setTimeout(() => {
 
-        balloons.forEach(g => {
+        minerGiggle.play();
 
-            g.src = "assets/battle/goblin_panick.png";
-        });
+    }, 1200);
 
-        confettiGoblins.forEach(g => {
+    setTimeout(() => {
 
-            g.src = "assets/battle/goblin_panick.png";
-        });
+        miner.style.bottom = "-220px";
 
-    }, 300);
-
+    }, 3500);
 }
-
