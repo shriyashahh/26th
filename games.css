@@ -58,13 +58,13 @@ body {
     width: 520px;
 
     left: 50%;
-    top: 60%;
+    top: 52%;
 
     transform: translate(-50%, -50%);
 
     opacity: 0;
 
-    z-index: 110;
+    z-index: 90;
 
     transition: 2.5s;
 }
@@ -87,7 +87,7 @@ body {
     transition: all 2.5s ease-in-out;
 }
 
-#kingCinfetti.kingTop{
+#kingConfetti.kingTop{
     top:8%;
     transform:translate(-50%,0);
     width:230px;
