@@ -1,65 +1,459 @@
-<!DOCTYPE html>
-<html lang="en">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<head>
+body {
 
-    <meta charset="UTF-8">
+    background: #08101f;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+.arena {
 
-    <title>Birthday Royale</title>
+    position: relative;
 
-    <link rel="stylesheet" href="games.css">
+    width: 100vw;
+    height: 100vh;
 
-</head>
+    overflow: hidden;
 
-<body>
+    background:
+        radial-gradient(circle at center,
+            #253f68 0%,
+            #13233d 45%,
+            #08101f 100%);
+}
 
-    <div class="arena" id="arena">
+/* ---------- BATTLE TEXT ---------- */
 
-        <div id="overlay"></div>
+#battleText {
 
-        <!-- Battle text -->
+    position: absolute;
 
-        <div id="battleText">
+    top: 35%;
+    left: 50%;
 
-            ⚔️ BATTLE IN PROGRESS ⚔️
+    transform: translate(-50%, -50%);
 
-        </div>
+    font-size: 24px;
 
-        <!-- King -->
+    letter-spacing: 3px;
 
-        <img
-            id="king"
-            src="assets/battle/king_stop.png">
+    color: rgba(255, 255, 255, 0.25);
 
-        <img
-            id="kingConfetti"
-            src="assets/battle/king_confetti.png">
+    z-index: 100;
 
-        <!-- Speech -->
+    transition: 1s;
+}
 
-        <div id="speech">
+/* ---------- KING ---------- */
 
-            STOP! STOP THE BATTLE!
+#king {
 
-        </div>
+    position: absolute;
 
-        <!-- Confetti -->
+    width: 520px;
 
-        <div id="confettiContainer"></div>
+    left: 50%;
+    top: 52%;
 
-        <!-- Balloon goblins -->
+    transform: translate(-50%, -50%);
 
-        <img
-            class="balloon b1"
-            src="assets/battle/goblin_balloon.png">
+    opacity: 0;
 
-        <img
-            class="balloon b2"
-            src="assets/battle/goblin_balloon.png">
+    z-index: 90;
 
-        <img
-            class="balloon b3"
-            src="assets/battle/goblin_balloon
+    transition: 2.5s;
+}
+
+#kingConfetti {
+
+    position: absolute;
+
+    width: 240px;
+
+    left: 50%;
+    top: -300px;
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    z-index: 120;
+
+    transition: 2s;
+}
+
+.kingTop {
+
+    top: 5% !important;
+}
+
+/* ---------- SPEECH ---------- */
+
+#speech {
+
+    position: absolute;
+
+    top: 18%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    color: black;
+
+    padding: 18px 24px;
+
+    border-radius: 20px;
+
+    font-size: 22px;
+
+    opacity: 0;
+
+    transition: 1s;
+
+    z-index: 130;
+}
+
+/* ---------- GOBLINS ---------- */
+
+.balloon,
+.confettiGoblin,
+#cakeGoblin {
+
+    position: absolute;
+
+    opacity: 0;
+
+    z-index: 80;
+
+    transition: 4s cubic-bezier(.22, 1, .36, 1);
+
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .6));
+}
+
+.balloon {
+
+    width: 170px;
+}
+
+.confettiGoblin {
+
+    width: 160px;
+}
+
+#cakeGoblin {
+
+    width: 220px;
+}
+
+/* START */
+
+.b1 {
+
+    top: -300px;
+    left: 5%;
+}
+
+.b2 {
+
+    top: -300px;
+    left: 80%;
+}
+
+.b3 {
+
+    top: -300px;
+    left: 55%;
+}
+
+.c1 {
+
+    left: -250px;
+    top: 50%;
+}
+
+.c2 {
+
+    left: -250px;
+    top: 70%;
+}
+
+.c3 {
+
+    right: -250px;
+    top: 50%;
+}
+
+.c4 {
+
+    right: -250px;
+    top: 68%;
+}
+
+#cakeGoblin {
+
+    left: -400px;
+    top: 58%;
+}
+
+/* FINAL */
+
+.b1.show {
+
+    opacity: 1;
+
+    top: 30%;
+    left: 10%;
+}
+
+.b2.show {
+
+    opacity: 1;
+
+    top: 45%;
+    left: 74%;
+}
+
+.b3.show {
+
+    opacity: 1;
+
+    top: 60%;
+    left: 55%;
+}
+
+.c1.show {
+
+    opacity: 1;
+
+    left: 22%;
+}
+
+.c2.show {
+
+    opacity: 1;
+
+    left: 8%;
+}
+
+.c3.show {
+
+    opacity: 1;
+
+    right: 24%;
+}
+
+.c4.show {
+
+    opacity: 1;
+
+    right: 3%;
+}
+
+#cakeGoblin.show {
+
+    opacity: 1;
+
+    left: 46%;
+}
+
+/* ---------- BOUNCE ---------- */
+
+.bounce {
+
+    animation: bounce .8s infinite alternate;
+}
+
+@keyframes bounce {
+
+    from {
+
+        transform: translateY(0);
+    }
+
+    to {
+
+        transform: translateY(-15px);
+    }
+}
+
+/* ---------- FALLEN CAKE ---------- */
+
+#fallenCake {
+
+    position: absolute;
+
+    width: 250px;
+
+    bottom: 10%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    z-index: 140;
+
+    transition: 1s;
+}
+
+#fallenCake.show {
+
+    opacity: 1;
+}
+
+/* ---------- EXTRA GOBLIN ---------- */
+
+#extraGoblin {
+
+    position: absolute;
+
+    width: 170px;
+
+    bottom: 8%;
+
+    right: 18%;
+
+    opacity: 0;
+
+    z-index: 140;
+
+    transition: 1s;
+}
+
+#extraGoblin.show {
+
+    opacity: 1;
+}
+
+/* ---------- MINER ---------- */
+
+#miner {
+
+    position: absolute;
+
+    width: 380px;
+
+    bottom: -450px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    z-index: 170;
+
+    transition: 2s ease;
+}
+
+#miner.show {
+
+    bottom: -20px;
+
+    opacity: 1;
+}
+
+/* ---------- BUBBLE ---------- */
+
+#goblinBubble {
+
+    position: absolute;
+
+    top: 18%;
+
+    right: 7%;
+
+    width: 280px;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    opacity: 0;
+
+    transition: 1s;
+
+    z-index: 180;
+}
+
+#goblinBubble.show {
+
+    opacity: 1;
+}
+
+/* ---------- CELEBRATION ---------- */
+
+#celebrationScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    z-index: 999;
+
+    transition: 2s;
+}
+
+#celebrationScreen.show {
+
+    opacity: 1;
+}
+
+/* ---------- SHAKE ---------- */
+
+.shake {
+
+    animation: shake .15s infinite;
+}
+
+@keyframes shake {
+
+    0% {
+
+        transform: translate(0);
+    }
+
+    25% {
+
+        transform: translate(-4px, 4px);
+    }
+
+    50% {
+
+        transform: translate(4px, -4px);
+    }
+
+    75% {
+
+        transform: translate(-3px, -3px);
+    }
+
+    100% {
+
+        transform: translate(3px, 3px);
+    }
+}
