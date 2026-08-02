@@ -421,7 +421,7 @@ function finalCelebration() {
 
     // show celebration image
 
-    celebrationScreen.style.display = "block";
+    celebrationScreen.style.display = "flex";
 
     celebrationScreen.classList.add("show");
 
