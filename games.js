@@ -1,3 +1,10 @@
+const fallenCake=document.getElementById("fallenCake");
+const panicGoblin = document.getElementbyId("panicGoblin");
+
+const splat = document.getElementById("splat");
+
+let confettiInterval;
+
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
 
@@ -152,12 +159,16 @@ function startGoblins() {
 
         }, 400);
 
+        setTimeout(()=>{
+            dropCake();
+        },3500);
+
     }, 3800);
 }
 
 function startConfetti() {
 
-    setInterval(() => {
+   confettiInterval= setInterval(() => {
 
         const confetti = document.createElement("div");
 
@@ -191,3 +202,57 @@ function startConfetti() {
 
     }, 80);
 }
+
+function dropCake() {
+
+    // stop confetti
+
+    clearInterval(confettiInterval);
+
+    // stop sounds
+
+    run1.pause();
+    run2.pause();
+
+    giggle.pause();
+
+    yay.pause();
+
+    // stop bouncing
+
+    balloons.forEach(g => g.classList.remove("bounce"));
+
+    confettiGoblins.forEach(g => g.classList.remove("bounce"));
+
+    cakeGoblin.classList.remove("bounce");
+
+    // splat
+
+    splat.play();
+
+    // remove cake goblin
+
+    cakeGoblin.style.opacity = "0";
+
+    // show fallen cake
+
+    fallenCake.classList.add("show");
+
+    // PANIC
+
+    setTimeout(() => {
+
+        balloons.forEach(g => {
+
+            g.src = "assets/battle/goblin_panick.png";
+        });
+
+        confettiGoblins.forEach(g => {
+
+            g.src = "assets/battle/goblin_panick.png";
+        });
+
+    }, 300);
+
+}
+
