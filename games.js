@@ -47,21 +47,24 @@ let confettiInterval;
 
 window.onload = () => {
 
+    battleVideo.currentTime = 0;
+
     battleVideo.play();
 
-    battleVideo.onended = () => {
-
-        battleVideo.style.opacity = "0";
-
-        setTimeout(() => {
-
-            startKingSequence();
-
-        }, 1500);
-
-    };
-
 };
+
+battleVideo.addEventListener("ended", () => {
+
+    battleVideo.style.opacity = "0";
+
+    setTimeout(() => {
+
+        startKingSequence();
+
+    }, 1000);
+
+});
+
 
 function startKingSequence() {
 
@@ -98,33 +101,6 @@ function startKingSequence() {
     };
 
 }
-
-
-    // king speech starts
-
-    setTimeout(() => {
-
-        speech.style.opacity = "1";
-
-        kingVoice.play();
-
-    }, 1800);
-
-
-    // after speech ends
-
-    kingVoice.onended = () => {
-
-        speech.style.opacity = "0";
-
-        setTimeout(() => {
-
-            moveKing();
-
-        }, 1500);
-    };
-};
-
 
 
 // ---------------- MOVE KING ----------------
