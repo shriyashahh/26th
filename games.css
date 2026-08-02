@@ -369,13 +369,36 @@ body {
     position:absolute;
     width:220px;
     left:42%;
-    top:52%;
-    transform:translateX(-50%);
+    top:50%;
+    transform:translateX(-50%) scale(0.8);
     opacity:0;
-    z-index:55;
-    transition:0.5s;
+    z-index:60;
+    transition:all .5s ease;
 }
 
 #fallenCake.show{
     opacity:1;
+    transform:translateX(-50%) scale(1);
+}
+
+.panic{
+    animation:panicShake .15s infinite;
+}
+
+@keyframes panicShake {
+    0%{
+        transform:translateX(0px);
+    }
+    25%{
+        transform:translateX(-4px);
+    }
+    50%{
+        transform: translateX(4px);
+    }
+    75%{
+        transform:translateX(-4px);
+    }
+    100%{
+        transform:translateX(0px);
+    }
 }
