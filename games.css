@@ -27,6 +27,79 @@ body {
             #08101f 100%);
 }
 
+#startScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #22345a 0%,
+
+            #0f182c 60%,
+
+            #08101f 100%
+
+        );
+}
+
+#startScreen h1 {
+
+    color: white;
+
+    font-size: 42px;
+
+    letter-spacing: 4px;
+
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+#startButton {
+
+    padding: 18px 42px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: #ffd700;
+
+    color: #222;
+
+    transition: 0.3s;
+}
+
+#startButton:hover {
+
+    transform: scale(1.08);
+
+    background: #ffe44d;
+}
+
+
 #battleVideo {
 
     position: absolute;
