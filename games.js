@@ -384,5 +384,7 @@ function finalCelebration() {
 
     celebrationScreen.classList.add("show");
 
+    crowd.loop=true;
     crowd.play();
+    
 }
