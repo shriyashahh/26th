@@ -1,5 +1,3 @@
-console.log("JS STARTED")
-
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
 
@@ -11,7 +9,8 @@ const yay = document.getElementById("yay");
 
 const splat = document.getElementById("splat");
 const digging = document.getElementById("digging");
-const minerGiggle = document.getElementById("minerGiggle");
+
+const minerLaugh = document.getElementById("minerLaugh");
 const crowd = document.getElementById("crowd");
 
 const king = document.getElementById("king");
@@ -28,16 +27,21 @@ const confettiGoblins = document.querySelectorAll(".confettiGoblin");
 const cakeGoblin = document.getElementById("cakeGoblin");
 
 const fallenCake = document.getElementById("fallenCake");
-const panicGoblin = document.getElementById("panicGoblin");
 
-const groundCrack = document.getElementById("groundCrack");
+const extraGoblin = document.getElementById("extraGoblin");
 
 const miner = document.getElementById("miner");
-const minerBubble = document.getElementById("minerBubble");
+
+const goblinBubble = document.getElementById("goblinBubble");
+
+const celebrationScreen =
+    document.getElementById("celebrationScreen");
 
 let confettiInterval;
 
 
+
+// ---------------- START ----------------
 
 window.onload = () => {
 
@@ -45,7 +49,7 @@ window.onload = () => {
 
     fanfare.play();
 
-    // ---------------- BATTLE FROZEN ----------------
+    // battle frozen
 
     setTimeout(() => {
 
@@ -54,7 +58,7 @@ window.onload = () => {
     }, 1000);
 
 
-    // ---------------- KING SPEECH ----------------
+    // king speech starts
 
     setTimeout(() => {
 
@@ -65,20 +69,23 @@ window.onload = () => {
     }, 1800);
 
 
-    // speech = 10–11 sec
+    // after speech ends
 
     kingVoice.onended = () => {
 
         speech.style.opacity = "0";
 
-        setTimeout(moveKing, 1200);
+        setTimeout(() => {
 
+            moveKing();
+
+        }, 1500);
     };
 };
 
 
 
-
+// ---------------- MOVE KING ----------------
 
 function moveKing() {
 
@@ -86,39 +93,77 @@ function moveKing() {
 
     king.style.opacity = "0";
 
-    kingConfetti.style.display = "block";
+    kingConfetti.style.opacity = "1";
 
-    setTimeout(() => {
-
-        kingConfetti.style.opacity = "1";
-
-        kingConfetti.classList.add("kingTop");
-
-    }, 100);
-
-    arena.classList.add("party");
+    kingConfetti.classList.add("kingTop");
 
     startConfetti();
-
-    // wait before goblins
 
     setTimeout(() => {
 
         startGoblins();
 
-    }, 2200);
+    }, 1800);
 }
 
 
 
+// ---------------- CONFETTI ----------------
 
+function startConfetti() {
+
+    confettiInterval = setInterval(() => {
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.className = "confetti";
+
+        const colors = [
+
+            "#ffd700",
+            "#ff6a00",
+            "#ff4fa0",
+            "#00d4ff",
+            "#7dff58"
+
+        ];
+
+        confetti.style.background =
+
+            colors[Math.floor(Math.random() * 5)];
+
+        confetti.style.left =
+
+            (window.innerWidth / 2 - 220 +
+
+                Math.random() * 440) + "px";
+
+        confetti.style.top = "-20px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        }, 3500);
+
+    }, 80);
+}
+
+
+
+// ---------------- GOBLINS ----------------
 
 function startGoblins() {
 
     run1.loop = true;
+
     run2.loop = true;
 
     run1.volume = 0.4;
+
     run2.volume = 0.25;
 
     run1.play();
@@ -127,7 +172,7 @@ function startGoblins() {
 
         run2.play();
 
-    }, 800);
+    }, 900);
 
 
 
@@ -140,7 +185,6 @@ function startGoblins() {
         }, index * 700);
 
     });
-
 
 
 
@@ -160,17 +204,25 @@ function startGoblins() {
 
         cakeGoblin.classList.add("show");
 
-    }, 1500);
+    }, 1800);
 
 
 
-    // celebrate for 5 sec
+    // bounce starts
 
     setTimeout(() => {
 
-        balloons.forEach(g => g.classList.add("bounce"));
+        balloons.forEach(g => {
 
-        confettiGoblins.forEach(g => g.classList.add("bounce"));
+            g.classList.add("bounce");
+
+        });
+
+        confettiGoblins.forEach(g => {
+
+            g.classList.add("bounce");
+
+        });
 
         cakeGoblin.classList.add("bounce");
 
@@ -182,39 +234,46 @@ function startGoblins() {
 
 
 
-    // cake drop
+    // cake falls
 
     setTimeout(() => {
 
         dropCake();
 
-    }, 10000);
+    }, 10500);
 }
 
 
 
-
-
+// ---------------- CAKE FALL ----------------
 
 function dropCake() {
 
     clearInterval(confettiInterval);
 
+    splat.play();
+
     run1.pause();
+
     run2.pause();
 
     giggle.pause();
+
     yay.pause();
 
-    balloons.forEach(g => g.classList.remove("bounce"));
+    balloons.forEach(g => {
 
-    confettiGoblins.forEach(g => g.classList.remove("bounce"));
+        g.classList.remove("bounce");
+
+    });
+
+    confettiGoblins.forEach(g => {
+
+        g.classList.remove("bounce");
+
+    });
 
     cakeGoblin.classList.remove("bounce");
-
-
-
-    splat.play();
 
     cakeGoblin.style.opacity = "0";
 
@@ -222,7 +281,7 @@ function dropCake() {
 
 
 
-    // 1 sec pause
+    // one second pause
 
     setTimeout(() => {
 
@@ -233,61 +292,54 @@ function dropCake() {
 
 
 
-
-
+// ---------------- PANIC ----------------
 
 function panicMode() {
 
     balloons.forEach(g => {
 
-        g.src = "assets/battle/goblin_panick.png";
+        g.src = "assets/battle/goblin_panic.png";
 
     });
 
     confettiGoblins.forEach(g => {
 
-        g.src = "assets/battle/goblin_panick.png";
+        g.src = "assets/battle/goblin_panic.png";
 
     });
 
-
-    panicGoblin.style.display = "block";
-
-    panicGoblin.style.opacity = "1";
-
-
-
-    // earthquake
-
-    arena.classList.add("shake");
+    extraGoblin.classList.add("show");
 
 
 
     setTimeout(() => {
 
-        groundCrack.classList.add("show");
+        goblinBubble.classList.add("show");
+
+    }, 1000);
+
+
+
+    setTimeout(() => {
+
+        arena.classList.add("shake");
 
         digging.play();
 
-    }, 500);
+    }, 2500);
 
 
-
-
-    // miner after 3 sec
 
     setTimeout(() => {
 
         showMiner();
 
-    }, 3000);
+    }, 5500);
 }
 
 
 
-
-
-
+// ---------------- MINER ----------------
 
 function showMiner() {
 
@@ -297,5 +349,40 @@ function showMiner() {
 
     digging.currentTime = 0;
 
+    fallenCake.style.opacity = "0";
 
-    // remove cake
+    miner.classList.add("show");
+
+    minerLaugh.play();
+
+
+
+    setTimeout(() => {
+
+        giggle.currentTime = 0;
+
+        giggle.play();
+
+    }, 1000);
+
+
+
+    setTimeout(() => {
+
+        finalCelebration();
+
+    }, 5000);
+}
+
+
+
+// ---------------- FINAL SCREEN ----------------
+
+function finalCelebration() {
+
+    goblinBubble.classList.remove("show");
+
+    celebrationScreen.classList.add("show");
+
+    crowd.play();
+}
