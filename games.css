@@ -78,7 +78,7 @@ body {
     left: 50%;
     top: 50%;
 
-    transform: translateX(-50%,-50%);
+    transform: translate(-50%,-50%);
 
     opacity: 0;
 
@@ -98,7 +98,7 @@ body {
     width:220px;
     top:8%;
     left:50%;
-    transform:translteX(-50%);
+    transform:translateX(-50%);
     transition:all 2.5s ease-in-out;
 }
 
@@ -109,7 +109,7 @@ body {
     position: absolute;
 
     top: 25%;
-    right: 10%;
+    right: 2%;
 
     transform: translateX(-10%);
 
@@ -416,30 +416,34 @@ body {
 /* ---------- CELEBRATION ---------- */
 
 #celebrationScreen {
-
+    
+    position: fixed;
+    inset:0;
+    display:flex;
+    justify-conttent:center;
+    align-items:center;
+    
     background: radial-gradient(
         circle,
         rgba(24,38,120,0.85),
         #03030a
         );
-    
-    position: fixed;
+    opacity:0;
+    pointer-events:none;
+    z-index:999;
+    transition:opacity 1s ease;
+}
 
-    left:50%;
-    top:50%;
-
-    width: 60%;
-
-    height: auto;
-
-    object-fit: contain;
-
-    transform:translate(-50%,-50%)
+#celebrationScreen img {
+    width:45%;
+    max-width:550px;
+    object-fit:contain;
 }
 
 #celebrationScreen.show {
 
     opacity: 1;
+    pointer-events:auto;
 }
 
 /* ---------- SHAKE ---------- */
