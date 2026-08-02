@@ -380,11 +380,54 @@ function showMiner() {
 
 function finalCelebration() {
 
-    goblinBubble.classList.remove("show");
+    // hide everything
+
+    kingConfetti.style.opacity = "0";
+
+    king.style.opacity = "0";
+
+    speech.style.opacity = "0";
+
+    battleText.style.opacity = "0";
+
+    goblinBubble.style.opacity = "0";
+
+    miner.style.opacity = "0";
+
+    fallenCake.style.opacity = "0";
+
+    extraGoblin.style.opacity = "0";
+
+
+    balloons.forEach(goblin => {
+
+        goblin.style.opacity = "0";
+
+    });
+
+    confettiGoblins.forEach(goblin => {
+
+        goblin.style.opacity = "0";
+
+    });
+
+    cakeGoblin.style.opacity = "0";
+
+
+    // remove arena background
+
+    arena.style.background = "#08101f";
+
+
+    // show celebration image
+
+    celebrationScreen.style.display = "block";
 
     celebrationScreen.classList.add("show");
 
-    crowd.loop=true;
+
+    // keep cheering forever
+
+    crowd.loop = true;
     crowd.play();
-    
 }
