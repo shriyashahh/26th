@@ -1,3 +1,6 @@
+const startButton= document.getElementById("startButton");
+const startScreen= document.getElementById("startScreen");
+
 const battleVideo= document.getElementById("battleVideo");
 
 const fanfare = document.getElementById("fanfare");
@@ -47,11 +50,29 @@ let confettiInterval;
 
 window.onload = () => {
 
+    battleVideo.pause();
+
+};
+
+startButton.addEventListener("click", () => {
+
+    startScreen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        startScreen.style.display = "none";
+
+    }, 800);
+
+    battleVideo.style.opacity = "1";
+
     battleVideo.currentTime = 0;
+
+    battleVideo.volume = 1;
 
     battleVideo.play();
 
-};
+});
 
 battleVideo.addEventListener("ended", () => {
 
