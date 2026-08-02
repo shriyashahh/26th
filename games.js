@@ -8,10 +8,9 @@ const giggle = document.getElementById("giggle");
 const yay = document.getElementById("yay");
 
 const splat = document.getElementById("splat");
-
-const dig = document.getElementById("dig");
-
+const digging = document.getElementById("digging");
 const minerGiggle = document.getElementById("minerGiggle");
+const crowd = document.getElementById("crowd");
 
 const king = document.getElementById("king");
 const kingConfetti = document.getElementById("kingConfetti");
@@ -19,7 +18,7 @@ const kingConfetti = document.getElementById("kingConfetti");
 const speech = document.getElementById("speech");
 const battleText = document.getElementById("battleText");
 
-const arena = document.querySelector(".arena");
+const arena = document.getElementById("arena");
 
 const balloons = document.querySelectorAll(".balloon");
 const confettiGoblins = document.querySelectorAll(".confettiGoblin");
@@ -27,10 +26,16 @@ const confettiGoblins = document.querySelectorAll(".confettiGoblin");
 const cakeGoblin = document.getElementById("cakeGoblin");
 
 const fallenCake = document.getElementById("fallenCake");
+const panicGoblin = document.getElementById("panicGoblin");
+
+const groundCrack = document.getElementById("groundCrack");
 
 const miner = document.getElementById("miner");
+const minerBubble = document.getElementById("minerBubble");
 
 let confettiInterval;
+
+
 
 window.onload = () => {
 
@@ -38,11 +43,16 @@ window.onload = () => {
 
     fanfare.play();
 
+    // ---------------- BATTLE FROZEN ----------------
+
     setTimeout(() => {
 
         battleText.innerHTML = "❄️ BATTLE FROZEN ❄️";
 
     }, 1000);
+
+
+    // ---------------- KING SPEECH ----------------
 
     setTimeout(() => {
 
@@ -52,52 +62,107 @@ window.onload = () => {
 
     }, 1800);
 
-    setTimeout(() => {
+
+    // speech = 10–11 sec
+
+    kingVoice.onended = () => {
 
         speech.style.opacity = "0";
 
-        battleText.style.opacity = "0";
+        setTimeout(moveKing, 1200);
 
-        king.style.opacity = "0";
+    };
+};
 
-        kingConfetti.style.display = "block";
 
-        kingConfetti.classList.add("kingTop");
+
+
+
+function moveKing() {
+
+    battleText.style.opacity = "0";
+
+    king.style.opacity = "0";
+
+    kingConfetti.style.display = "block";
+
+    setTimeout(() => {
 
         kingConfetti.style.opacity = "1";
 
-        arena.classList.add("party");
+        kingConfetti.classList.add("kingTop");
 
-        startConfetti();
+    }, 100);
+
+    arena.classList.add("party");
+
+    startConfetti();
+
+    // wait before goblins
+
+    setTimeout(() => {
 
         startGoblins();
 
-    }, 7000);
-};
+    }, 2200);
+}
+
+
+
+
 
 function startGoblins() {
 
+    run1.loop = true;
+    run2.loop = true;
+
+    run1.volume = 0.4;
+    run2.volume = 0.25;
+
     run1.play();
 
-    setTimeout(() => run2.play(), 500);
+    setTimeout(() => {
 
-    balloons.forEach((g, i) => {
+        run2.play();
 
-        setTimeout(() => g.classList.add("show"), i * 300);
+    }, 800);
+
+
+
+    balloons.forEach((goblin, index) => {
+
+        setTimeout(() => {
+
+            goblin.classList.add("show");
+
+        }, index * 700);
 
     });
 
-    confettiGoblins.forEach((g, i) => {
 
-        setTimeout(() => g.classList.add("show"), i * 250);
+
+
+    confettiGoblins.forEach((goblin, index) => {
+
+        setTimeout(() => {
+
+            goblin.classList.add("show");
+
+        }, index * 600);
 
     });
+
+
 
     setTimeout(() => {
 
         cakeGoblin.classList.add("show");
 
-    }, 700);
+    }, 1500);
+
+
+
+    // celebrate for 5 sec
 
     setTimeout(() => {
 
@@ -111,82 +176,124 @@ function startGoblins() {
 
         yay.play();
 
-    }, 3500);
+    }, 5200);
 
-    setTimeout(dropCake, 5500);
+
+
+    // cake drop
+
+    setTimeout(() => {
+
+        dropCake();
+
+    }, 10000);
 }
 
-function startConfetti() {
 
-    confettiInterval = setInterval(() => {
 
-        const c = document.createElement("div");
 
-        c.className = "confetti";
 
-        c.style.left = (window.innerWidth / 2 - 180 + Math.random() * 360) + "px";
-
-        c.style.top = "-20px";
-
-        c.style.background =
-
-            ["gold", "#ff5e5e", "#00bfff", "#4caf50"][
-                Math.floor(Math.random() * 4)
-            ];
-
-        document.body.appendChild(c);
-
-        setTimeout(() => c.remove(), 3000);
-
-    }, 90);
-}
 
 function dropCake() {
 
     clearInterval(confettiInterval);
 
     run1.pause();
-
     run2.pause();
 
     giggle.pause();
-
     yay.pause();
-
-    splat.play();
 
     balloons.forEach(g => g.classList.remove("bounce"));
 
-    confettiGoblins.forEach(g => {
+    confettiGoblins.forEach(g => g.classList.remove("bounce"));
 
-        g.classList.remove("bounce");
+    cakeGoblin.classList.remove("bounce");
 
-        g.src = "assets/battle/goblin_panick.png";
 
-    });
+
+    splat.play();
 
     cakeGoblin.style.opacity = "0";
 
     fallenCake.classList.add("show");
 
-    setTimeout(showMiner, 1800);
+
+
+    // 1 sec pause
+
+    setTimeout(() => {
+
+        panicMode();
+
+    }, 1000);
 }
+
+
+
+
+
+
+function panicMode() {
+
+    balloons.forEach(g => {
+
+        g.src = "assets/battle/goblin_panick.png";
+
+    });
+
+    confettiGoblins.forEach(g => {
+
+        g.src = "assets/battle/goblin_panick.png";
+
+    });
+
+
+    panicGoblin.style.display = "block";
+
+    panicGoblin.style.opacity = "1";
+
+
+
+    // earthquake
+
+    arena.classList.add("shake");
+
+
+
+    setTimeout(() => {
+
+        groundCrack.classList.add("show");
+
+        digging.play();
+
+    }, 500);
+
+
+
+
+    // miner after 3 sec
+
+    setTimeout(() => {
+
+        showMiner();
+
+    }, 3000);
+}
+
+
+
+
+
+
 
 function showMiner() {
 
-    dig.play();
+    arena.classList.remove("shake");
 
-    miner.classList.add("show");
+    digging.pause();
 
-    setTimeout(() => {
+    digging.currentTime = 0;
 
-        minerGiggle.play();
 
-    }, 1200);
-
-    setTimeout(() => {
-
-        miner.style.bottom = "-220px";
-
-    }, 3500);
-}
+    // remove cake
