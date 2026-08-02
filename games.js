@@ -1,3 +1,5 @@
+console.log("JS STARTED")
+
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
 
