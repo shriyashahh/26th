@@ -423,7 +423,7 @@ body {
         #03030a
         );
 }
-    position: absolute;
+    position: fixed;
 
     left:50%
     top:50%
