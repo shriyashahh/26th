@@ -364,3 +364,18 @@ body {
         transform: translateY(-12px);
     }
 }
+
+#fallenCake{
+    position:absolute;
+    width:220px;
+    left:42%;
+    top:52%;
+    transform:translateX(-50%);
+    opacity:0;
+    z-index:55;
+    transition:0.5s;
+}
+
+#fallenCake.show{
+    opacity:1;
+}
