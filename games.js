@@ -1,3 +1,5 @@
+const battleVideo= document.getElementById("battleVideo");
+
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
 
@@ -45,17 +47,57 @@ let confettiInterval;
 
 window.onload = () => {
 
+    battleVideo.play();
+
+    battleVideo.onended = () => {
+
+        battleVideo.style.opacity = "0";
+
+        setTimeout(() => {
+
+            startKingSequence();
+
+        }, 1500);
+
+    };
+
+};
+
+function startKingSequence() {
+
     king.style.opacity = "1";
 
     fanfare.play();
 
-    // battle frozen
+    setTimeout(() => {
+
+        battleText.innerHTML =
+
+            "❄️ BATTLE FROZEN ❄️";
+
+    }, 1000);
 
     setTimeout(() => {
 
-        battleText.innerHTML = "❄️ BATTLE FROZEN ❄️";
+        speech.style.opacity = "1";
 
-    }, 1000);
+        kingVoice.play();
+
+    }, 1800);
+
+    kingVoice.onended = () => {
+
+        speech.style.opacity = "0";
+
+        setTimeout(() => {
+
+            moveKing();
+
+        }, 1500);
+
+    };
+
+}
 
 
     // king speech starts
