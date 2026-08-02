@@ -1,5 +1,5 @@
 const fallenCake=document.getElementById("fallenCake");
-const panicGoblin = document.getElementbyId("panicGoblin");
+const panicGoblin = document.getElementById("panicGoblin");
 
 const splat = document.getElementById("splat");
 
@@ -82,15 +82,6 @@ window.onload = () => {
     }, 7000);
 
 };
-    // KING SPEECH
-
-    setTimeout(() => {
-
-        speech.style.opacity = "1";
-
-        kingVoice.play();
-
-    }, 1700);
 
 function startGoblins() {
 
@@ -143,7 +134,7 @@ function startGoblins() {
 
         setTimeout(()=>{
             balloons.forEach(g=>g.classList.remove("bounce"));
-            confettiGobliins.forEach(g=>g.classList.remove("bounce"));
+            confettiGoblins.forEach(g=>g.classList.remove("bounce"));
             cakeGoblin.classList.remove("bounce");
         },2000);
 
@@ -161,7 +152,7 @@ function startGoblins() {
 
         setTimeout(()=>{
             dropCake();
-        },3500);
+        },1800);
 
     }, 3800);
 }
