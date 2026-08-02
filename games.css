@@ -1,353 +1,65 @@
-* {
+<!DOCTYPE html>
+<html lang="en">
 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<head>
 
-body {
+    <meta charset="UTF-8">
 
-    overflow: hidden;
-}
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-.arena {
+    <title>Birthday Royale</title>
 
-    position: relative;
+    <link rel="stylesheet" href="games.css">
 
-    width: 100vw;
-    height: 100vh;
+</head>
 
-    overflow: hidden;
+<body>
 
-    background:
+    <div class="arena" id="arena">
 
-        radial-gradient(circle,
+        <div id="overlay"></div>
 
-            #6c5cff 0%,
-            #41308e 45%,
-            #141a43 100%);
-}
+        <!-- Battle text -->
 
-.arena.party {
+        <div id="battleText">
 
-    background:
+            ⚔️ BATTLE IN PROGRESS ⚔️
 
-        radial-gradient(circle,
+        </div>
 
-            #796bff 0%,
-            #4937aa 45%,
-            #141a43 100%);
-}
+        <!-- King -->
 
-#overlay {
+        <img
+            id="king"
+            src="assets/battle/king_stop.png">
 
-    position: absolute;
+        <img
+            id="kingConfetti"
+            src="assets/battle/king_confetti.png">
 
-    inset: 0;
+        <!-- Speech -->
 
-    background: rgba(0, 0, 0, .2);
-}
+        <div id="speech">
 
-#battleText {
+            STOP! STOP THE BATTLE!
 
-    position: absolute;
+        </div>
 
-    top: 26%;
+        <!-- Confetti -->
 
-    left: 50%;
+        <div id="confettiContainer"></div>
 
-    transform: translate(-50%, -50%);
+        <!-- Balloon goblins -->
 
-    color: rgba(255, 255, 255, .18);
+        <img
+            class="balloon b1"
+            src="assets/battle/goblin_balloon.png">
 
-    font-size: 24px;
+        <img
+            class="balloon b2"
+            src="assets/battle/goblin_balloon.png">
 
-    letter-spacing: 4px;
-
-    z-index: 20;
-
-    transition: .8s;
-}
-
-#king,
-#kingConfetti {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 250px;
-
-    z-index: 100;
-
-    transition: 1s;
-
-    filter:
-
-        drop-shadow(0 0 40px gold);
-}
-
-#kingConfetti {
-
-    display: none;
-
-    opacity: 0;
-}
-
-.kingTop {
-
-    top: 10% !important;
-
-    width: 170px !important;
-}
-
-#speech {
-
-    position: absolute;
-
-    left: 50%;
-    top: 72%;
-
-    transform: translateX(-50%);
-
-    background: white;
-
-    padding: 16px 24px;
-
-    border-radius: 18px;
-
-    font-weight: bold;
-
-    opacity: 0;
-
-    transition: .5s;
-
-    z-index: 150;
-}
-
-.balloon,
-.confettiGoblin,
-#cakeGoblin {
-
-    position: absolute;
-
-    opacity: 0;
-
-    transition: 3s cubic-bezier(.22, 1, .36, 1);
-
-    z-index: 60;
-}
-
-.balloon {
-
-    width: 180px;
-}
-
-.confettiGoblin {
-
-    width: 160px;
-}
-
-#cakeGoblin {
-
-    width: 220px;
-}
-
-/* start */
-
-.b1 {
-
-    top: -300px;
-    left: 0;
-}
-
-.b2 {
-
-    top: -350px;
-    left: 100%;
-}
-
-.b3 {
-
-    top: -300px;
-    left: 50%;
-}
-
-.c1 {
-
-    top: 45%;
-    left: -300px;
-}
-
-.c2 {
-
-    top: 65%;
-    left: -300px;
-}
-
-.c3 {
-
-    top: 48%;
-    right: -300px;
-}
-
-.c4 {
-
-    top: 65%;
-    right: -300px;
-}
-
-#cakeGoblin {
-
-    top: 56%;
-    left: -400px;
-}
-
-/* end */
-
-.b1.show {
-
-    opacity: 1;
-
-    top: 34%;
-
-    left: 10%;
-}
-
-.b2.show {
-
-    opacity: 1;
-
-    top: 34%;
-
-    left: 76%;
-}
-
-.b3.show {
-
-    opacity: 1;
-
-    top: 50%;
-
-    left: 58%;
-}
-
-.c1.show {
-
-    opacity: 1;
-
-    left: 18%;
-}
-
-.c2.show {
-
-    opacity: 1;
-
-    left: 4%;
-}
-
-.c3.show {
-
-    opacity: 1;
-
-    right: 18%;
-}
-
-.c4.show {
-
-    opacity: 1;
-
-    right: 4%;
-}
-
-#cakeGoblin.show {
-
-    opacity: 1;
-
-    top: 50%;
-
-    left: 42%;
-}
-
-.bounce {
-
-    animation: bounce .6s infinite alternate;
-}
-
-@keyframes bounce {
-
-    from {
-
-        transform: translateY(0);
-    }
-
-    to {
-
-        transform: translateY(-12px);
-    }
-}
-
-.confetti {
-
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    animation: confettiFall 3s linear forwards;
-}
-
-@keyframes confettiFall {
-
-    to {
-
-        transform: translateY(110vh);
-
-        opacity: 0;
-    }
-}
-
-#fallenCake {
-
-    position: absolute;
-
-    width: 220px;
-
-    top: 50%;
-
-    left: 42%;
-
-    opacity: 0;
-
-    z-index: 80;
-}
-
-#fallenCake.show {
-
-    opacity: 1;
-}
-
-#miner {
-
-    position: absolute;
-
-    width: 170px;
-
-    left: 44%;
-
-    bottom: -220px;
-
-    z-index: 90;
-
-    transition: 1s;
-}
-
-#miner.show {
-
-    bottom: 10%;
-}
+        <img
+            class="balloon b3"
+            src="assets/battle/goblin_balloon
