@@ -73,18 +73,24 @@ body {
 
     position: absolute;
 
-    width: 240px;
+    width: 320px;
 
     left: 50%;
-    top: 52%;
+    top: 50%;
 
     transform: translateX(-50%,-50%);
 
     opacity: 0;
 
-    z-index: 120;
+    z-index: 80;
 
-    transition: all 2.8s ease-in-out;
+    transition: all 2.5s ease-in-out;
+}
+
+#kingCinfetti.kingTop{
+    top:8%;
+    transform:translate(-50%,0);
+    width:230px;
 }
 
 .kingTop {
@@ -98,7 +104,7 @@ body {
 
     position: absolute;
 
-    top: 12%;
+    top: 28%;
     left: 50%;
 
     transform: translateX(-50%);
@@ -107,19 +113,23 @@ body {
 
     color: black;
 
-    padding: 16px 28px;
+    padding: 18px 28px;
 
     border-radius: 20px;
 
-    font-size: 20px;
+    font-size: 32px;
 
     font-weight:bold;
 
     opacity: 0;
 
-    transition: 1s;
+    transition: all 1s ease;
 
-    z-index: 130;
+    z-index: 100;
+}
+
+#speech.moveTop{
+    top:2%;
 }
 
 /* ---------- GOBLINS ---------- */
@@ -403,6 +413,12 @@ body {
 
 #celebrationScreen {
 
+    background: radial-gradient(
+        circle,
+        rgba(24,38,120,0.85),
+        #03030a
+        );
+}
     position: absolute;
 
     left:50%
