@@ -511,7 +511,7 @@ body {
     
     position: fixed;
     inset:0;
-    display:flex;
+    display:none;
     justify-content:center;
     align-items:center;
     
@@ -521,7 +521,6 @@ body {
         #03030a
         );
     opacity:0;
-    pointer-events:none;
     z-index:9999;
     transition:opacity 1.5s ease;
 }
@@ -535,8 +534,8 @@ body {
 
 #celebrationScreen.show {
 
+    display:flex;
     opacity: 1;
-    pointer-events:all;
 }
 
 /* ---------- SHAKE ---------- */
