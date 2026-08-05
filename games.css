@@ -508,36 +508,40 @@ body {
 /* ---------- CELEBRATION ---------- */
 
 #celebrationScreen {
-    
-    position: fixed;
-    inset:0;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    
-    background: radial-gradient(
-        circle,
-        rgba(24,38,120,0.85),
-        #03030a
-        );
-    opacity:0;
-    z-index:9999;
-    transition:opacity 1.5s ease;
-}
 
-#celebrationScreen img {
-    width:52%;
-    max-width:650px;
-    object-fit:contain;
-    transform:scale(1.08);
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(1.08);
+
+    width: 55%;
+
+    max-width: 700px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    z-index: 9999;
+
+    transition: opacity 1.5s ease;
+
+    pointer-events: none;
+
+    display: none;
 }
 
 #celebrationScreen.show {
 
-    display:flex;
+    display: block;
+
     opacity: 1;
 }
-
 /* ---------- SHAKE ---------- */
 
 .shake {
