@@ -460,7 +460,7 @@ function finalCelebration() {
 
     // show celebration image
 
-    celebrationScreen.style.display = "flex";
+    celebrationScreen.style.display = "block";
 
     celebrationScreen.classList.add("show");
 
