@@ -148,7 +148,7 @@ battleVideo.addEventListener("timeupdate", () => {
         chatTriggered.chat1 = true;
 
         showChatBubble(
-            "pecca ke aage Valkyrie daalo",
+            "miner kuch kaam ka nai hai irritating",
             "sid"
         );
     }
@@ -158,7 +158,7 @@ battleVideo.addEventListener("timeupdate", () => {
         chatTriggered.chat2 = true;
 
         showChatBubble(
-            "miner kaam ka nai hai",
+            "tower piche daalna",
             "sid"
         );
     }
@@ -168,8 +168,8 @@ battleVideo.addEventListener("timeupdate", () => {
         chatTriggered.chat3 = true;
 
         showChatBubble(
-            "yeh aage piche kya hota hai yaar",
-            "shriya"
+            "pecca ke aage Valkyrie daalo",
+            "sid"
         );
     }
 
@@ -178,8 +178,8 @@ battleVideo.addEventListener("timeupdate", () => {
         chatTriggered.chat4 = true;
 
         showChatBubble(
-            "yeh log aagaya aapka phoenix",
-            "sid"
+            "siddhesh yaar yeh aage piche kya hota hai yaaaar",
+            "shriya"
         );
     }
 
@@ -188,7 +188,7 @@ battleVideo.addEventListener("timeupdate", () => {
         chatTriggered.chat5 = true;
 
         showChatBubble(
-            "tower piche daalna",
+            "bade tez ho rahe ho",
             "sid"
         );
     }
