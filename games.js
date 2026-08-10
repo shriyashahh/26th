@@ -2,6 +2,7 @@ const startButton= document.getElementById("startButton");
 const startScreen= document.getElementById("startScreen");
 
 const battleVideo= document.getElementById("battleVideo");
+const battleChat= document.getElementById("battleChat");
 
 const fanfare = document.getElementById("fanfare");
 const kingVoice = document.getElementById("kingVoice");
@@ -75,6 +76,128 @@ startButton.addEventListener("click", () => {
 });
 
 battleVideo.addEventListener("ended", () => {
+
+    battleVideo.style.opacity = "0";
+
+    setTimeout(() => {
+
+        startKingSequence();
+
+    }, 1000);
+
+});
+
+function showChatBubble(message, side, duration = 3000) {
+
+    const bubble = document.createElement("div");
+
+    bubble.className =
+        "chatBubble " + side;
+
+    bubble.innerText = message;
+
+    battleChat.appendChild(bubble);
+
+    /*
+     * Slightly different vertical positions
+     * so the messages don't sit directly
+     * on top of each other.
+     */
+
+    const existing =
+        battleChat.querySelectorAll(
+            ".chatBubble." + side
+        ).length;
+
+    bubble.style.top =
+        (18 + existing * 11) + "%";
+
+    requestAnimationFrame(() => {
+
+        bubble.classList.add("show");
+
+    });
+
+    setTimeout(() => {
+
+        bubble.classList.remove("show");
+
+        setTimeout(() => {
+
+            bubble.remove();
+
+        }, 400);
+
+    }, duration);
+}
+
+let chatTriggered = {
+    chat1: false,
+    chat2: false,
+    chat3: false,
+    chat4: false,
+    chat5: false
+};
+
+battleVideo.addEventListener("timeupdate", () => {
+
+    const time = battleVideo.currentTime;
+
+    if (time >= 7 && !chatTriggered.chat1) {
+
+        chatTriggered.chat1 = true;
+
+        showChatBubble(
+            "pecca ke aage Valkyrie daalo",
+            "sid"
+        );
+    }
+
+    if (time >= 12 && !chatTriggered.chat2) {
+
+        chatTriggered.chat2 = true;
+
+        showChatBubble(
+            "miner kaam ka nai hai",
+            "sid"
+        );
+    }
+
+    if (time >= 17 && !chatTriggered.chat3) {
+
+        chatTriggered.chat3 = true;
+
+        showChatBubble(
+            "yeh aage piche kya hota hai yaar",
+            "shriya"
+        );
+    }
+
+    if (time >= 23 && !chatTriggered.chat4) {
+
+        chatTriggered.chat4 = true;
+
+        showChatBubble(
+            "yeh log aagaya aapka phoenix",
+            "sid"
+        );
+    }
+
+    if (time >= 28 && !chatTriggered.chat5) {
+
+        chatTriggered.chat5 = true;
+
+        showChatBubble(
+            "tower piche daalna",
+            "sid"
+        );
+    }
+
+});
+
+battleVideo.addEventListener("ended", () => {
+
+    battleChat.innerHTML = "";
 
     battleVideo.style.opacity = "0";
 
