@@ -97,14 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             type: "image",
-            src: "assets/gallery/proud of you 1.jpeg",
+            src: "assets/gallery/proud of you 2.jpeg",
             caption:
                 "Proud of you."
         },
 
         {
             type: "image",
-            src: "assets/gallery/proud of you 2.jpeg",
+            src: "assets/gallery/proud of you 1.jpeg",
             caption:
                 "And yes, still proud of you."
         },
