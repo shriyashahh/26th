@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const finalMessage = chat.querySelector(".final");
 
+    const morningTime =
+    document.getElementById("morningTime");
+
+morningTime.style.display = "none";
+
 
     // =====================================================
     // HIDE EVERYTHING INITIALLY
@@ -168,6 +173,15 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(resolve, 500)
         );
 
+        morningTime.style.display = "";
+morningTime.classList.add("messageReveal");
+
+scrollToBottom();
+
+await new Promise(resolve =>
+    setTimeout(resolve, 1000)
+);
+        
         await showTyping("right");
 
         await showMessage(
