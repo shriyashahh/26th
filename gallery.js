@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "image",
             src: "assets/gallery/trio restaurant.jpeg",
             caption:
-                "The trio."
+                "The trio.",
             rotation:-90
         },
 
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "image",
             src: "assets/gallery/trio traditional.jpeg",
             caption:
-                "Another trio memory."
+                "Another trio memory.",
             rotation:-90
         },
 
@@ -344,6 +344,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             image.alt = "Memory";
 
+            if (memory.roation){
+                image.style.transform=
+                    'rotate(${memory.rotation}deg);
+            }
+        
+
             reelContent.appendChild(image);
 
         }
@@ -441,6 +447,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 image.src =
                     memory.src;
+
+                image.alt=
+                    "Memory";
+                if (memory.roation){
+                    image.style.transform=
+                        'rotate(${memory.rotation}deg)';
+                }
+                card.appendChild(image);
 
                 image.alt =
                     "Memory";
@@ -554,6 +568,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             image.alt =
                 "Memory";
+
+            if (memory.roation){
+                image.style.transform=
+                    'rotate(${memory.roation}deg)';
+            }
 
             viewerContent.appendChild(image);
 
