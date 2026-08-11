@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Archive</title>
+
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+
+<body>
+
+    <main id="gallery">
+
+
+        <!-- ==========================================
+             GALLERY HOME
+        =========================================== -->
+
+        <section id="galleryHome" class="screen active">
+
+            <div class="homeContent">
+
+                <div class="archiveTag">
+                    MEMORY ARCHIVE
+                </div>
+
+                <h1>
+                    The Things<br>
+                    We Remember.
+                </h1>
+
+                <p class="homeSubtitle">
+                    22 photographs · 7 little movies
+                </p>
+
+
+                <div class="homeLine"></div>
+
+
+                <p class="homeDescription">
+                    A small collection of moments,
+                    questionable decisions,
+                    good food and people
+                    who somehow became memories.
+                </p>
+
+
+                <div class="galleryButtons">
+
+                    <button
+                        id="reelButton"
+                        class="mainButton">
+
+                        <span>▶</span>
+                        PLAY THE MEMORY REEL
+
+                    </button>
+
+
+                    <button
+                        id="archiveButton"
+                        class="secondaryButton">
+
+                        <span>▦</span>
+                        OPEN ARCHIVE
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             MEMORY REEL
+        =========================================== -->
+
+        <section id="memoryReel" class="screen">
+
+            <div class="reelTopBar">
+
+                <div class="reelLabel">
+                    MEMORY REEL
+                </div>
+
+
+                <div
+                    id="reelCounter"
+                    class="reelCounter">
+
+                    01 / 29
+
+                </div>
+
+
+                <button
+                    id="skipReel"
+                    class="smallButton">
+
+                    SKIP
+
+                </button>
+
+            </div>
+
+
+
+            <!-- MEMORY DISPLAY -->
+
+            <div
+                id="reelContent"
+                class="reelContent">
+
+                <!--
+                    JavaScript will insert
+                    the current memory here.
+                -->
+
+            </div>
+
+
+
+            <!-- REEL CONTROLS -->
+
+            <div class="reelBottom">
+
+                <div
+                    id="reelCaption"
+                    class="reelCaption">
+
+                </div>
+
+
+                <button
+                    id="nextMemory"
+                    class="continueButton">
+
+                    CONTINUE
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             FULL ARCHIVE
+        =========================================== -->
+
+        <section
+            id="memoryArchive"
+            class="screen">
+
+            <div class="archiveTopBar">
+
+
+                <div class="archiveTitle">
+
+                    <div class="archiveTag">
+                        MEMORY ARCHIVE
+                    </div>
+
+                    <h2>
+                        Everything.
+                    </h2>
+
+                    <p>
+                        Nothing locked.
+                        Nothing hidden.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="backHome"
+                    class="smallButton">
+
+                    ← BACK
+
+                </button>
+
+            </div>
+
+
+
+            <!-- FILTERS -->
+
+            <div class="archiveFilters">
+
+                <button
+                    class="filterButton active"
+                    data-filter="all">
+
+                    ALL
+
+                </button>
+
+                <button
+                    class="filterButton"
+                    data-filter="image">
+
+                    PHOTOS
+
+                </button>
+
+                <button
+                    class="filterButton"
+                    data-filter="video">
+
+                    VIDEOS
+
+                </button>
+
+            </div>
+
+
+
+            <!-- MEMORY GRID -->
+
+            <div
+                id="memoryGrid"
+                class="memoryGrid">
+
+                <!--
+                    JavaScript generates
+                    all 29 memory cards here.
+                -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             MEMORY VIEWER
+        =========================================== -->
+
+        <div
+            id="memoryViewer"
+            class="memoryViewer">
+
+
+            <button
+                id="closeViewer"
+                class="viewerClose">
+
+                ×
+
+            </button>
+
+
+            <div
+                id="viewerContent"
+                class="viewerContent">
+
+                <!--
+                    Image/video inserted here.
+                -->
+
+            </div>
+
+
+            <div
+                id="viewerCaption"
+                class="viewerCaption">
+
+                <!-- Caption -->
+
+            </div>
+
+
+            <div class="viewerControls">
+
+                <button
+                    id="previousMemory"
+                    class="viewerArrow">
+
+                    ←
+
+                </button>
+
+
+                <button
+                    id="nextViewerMemory"
+                    class="viewerArrow">
+
+                    →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <script src="gallery.js"></script>
+
+</body>
+
+</html>
