@@ -1,1 +1,982 @@
+/* =====================================================
+   RESET
+===================================================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background: #0B1D33;
+    color: #F6EAD8;
+    font-family: Inter, Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   MAIN GALLERY
+===================================================== */
+
+#gallery {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #19385a 0%,
+            #102742 42%,
+            #071321 100%
+        );
+}
+
+
+/* =====================================================
+   GENERIC SCREEN
+===================================================== */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   GALLERY HOME
+===================================================== */
+
+#galleryHome {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+
+.homeContent {
+    width: min(700px, 90vw);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    animation: homeAppear 1.2s ease forwards;
+}
+
+
+.archiveTag {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: #C9A86A;
+
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+}
+
+
+.homeContent h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(52px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+    color: #F6EAD8;
+
+    margin-bottom: 25px;
+}
+
+
+.homeSubtitle {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    color: #C7B8A4;
+
+    text-transform: uppercase;
+}
+
+
+.homeLine {
+    width: 90px;
+    height: 1px;
+
+    background: #C9A86A;
+
+    margin: 30px 0;
+}
+
+
+.homeDescription {
+    max-width: 500px;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #D8CCBD;
+}
+
+
+.galleryButtons {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 40px;
+
+    width: 280px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.mainButton,
+.secondaryButton,
+.continueButton,
+.smallButton,
+.filterButton,
+.viewerArrow {
+    font-family: Inter, Arial, sans-serif;
+
+    cursor: pointer;
+
+    border: none;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.mainButton {
+    width: 100%;
+
+    padding: 17px 22px;
+
+    background: #C9A86A;
+
+    color: #101010;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    border-radius: 4px;
+}
+
+
+.mainButton span {
+    margin-right: 8px;
+}
+
+
+.mainButton:hover {
+    transform: translateY(-3px);
+
+    background: #E0C68C;
+}
+
+
+.secondaryButton {
+    width: 100%;
+
+    padding: 16px 22px;
+
+    background: transparent;
+
+    color: #F6EAD8;
+
+    border: 1px solid rgba(201, 168, 106, 0.5);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    border-radius: 4px;
+}
+
+
+.secondaryButton:hover {
+    transform: translateY(-3px);
+
+    border-color: #C9A86A;
+
+    background: rgba(201, 168, 106, 0.08);
+}
+
+
+.smallButton {
+    padding: 10px 16px;
+
+    background: transparent;
+
+    color: #C7B8A4;
+
+    border: 1px solid rgba(246, 234, 216, 0.25);
+
+    border-radius: 3px;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.smallButton:hover {
+    color: #F6EAD8;
+
+    border-color: #C9A86A;
+}
+
+
+/* =====================================================
+   MEMORY REEL
+===================================================== */
+
+#memoryReel {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 28px 40px;
+}
+
+
+.reelTopBar {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.reelLabel {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #C9A86A;
+}
+
+
+.reelCounter {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #C7B8A4;
+}
+
+
+.reelTopBar .smallButton {
+    justify-self: end;
+}
+
+
+/* =====================================================
+   REEL CONTENT
+===================================================== */
+
+.reelContent {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    padding: 25px;
+}
+
+
+.reelContent img,
+.reelContent video {
+    display: block;
+
+    max-width: 82vw;
+    max-height: 68vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+
+    animation: memoryAppear 0.8s ease forwards;
+}
+
+
+.reelContent video {
+    background: #000;
+}
+
+
+/* =====================================================
+   REEL BOTTOM
+===================================================== */
+
+.reelBottom {
+    min-height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-top: 1px solid rgba(246, 234, 216, 0.12);
+
+    padding-top: 20px;
+}
+
+
+.reelCaption {
+    max-width: 700px;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    color: #E9DDCD;
+}
+
+
+.continueButton {
+    flex-shrink: 0;
+
+    padding: 13px 20px;
+
+    background: #C9A86A;
+
+    color: #101010;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    border-radius: 3px;
+}
+
+
+.continueButton span {
+    margin-left: 10px;
+}
+
+
+.continueButton:hover {
+    transform: translateX(4px);
+
+    background: #E0C68C;
+}
+
+
+/* =====================================================
+   ARCHIVE
+===================================================== */
+
+#memoryArchive {
+    overflow-y: auto;
+
+    padding: 35px 5vw 60px;
+}
+
+
+.archiveTopBar {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+
+.archiveTitle h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+}
+
+
+.archiveTitle p {
+    color: #C7B8A4;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+.archiveFilters {
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+
+.filterButton {
+    padding: 9px 15px;
+
+    background: transparent;
+
+    color: #C7B8A4;
+
+    border: 1px solid rgba(246, 234, 216, 0.18);
+
+    border-radius: 3px;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.filterButton:hover,
+.filterButton.active {
+    background: #C9A86A;
+
+    border-color: #C9A86A;
+
+    color: #101010;
+}
+
+
+/* =====================================================
+   MEMORY GRID
+===================================================== */
+
+.memoryGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(190px, 1fr));
+
+    gap: 18px;
+}
+
+
+.memoryCard {
+    position: relative;
+
+    aspect-ratio: 1 / 1.15;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #12263E;
+
+    border: 1px solid rgba(246, 234, 216, 0.08);
+
+    border-radius: 3px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.memoryCard:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(201, 168, 106, 0.65);
+}
+
+
+.memoryCard img,
+.memoryCard video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+.memoryCard:hover img,
+.memoryCard:hover video {
+    transform: scale(1.04);
+}
+
+
+.memoryCardOverlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 35px 15px 14px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.85)
+        );
+
+    pointer-events: none;
+}
+
+
+.memoryType {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #C9A86A;
+
+    margin-bottom: 5px;
+}
+
+
+.memoryCardTitle {
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    color: #F6EAD8;
+}
+
+
+/* =====================================================
+   FULLSCREEN VIEWER
+===================================================== */
+
+.memoryViewer {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px 40px 40px;
+
+    background:
+        rgba(3, 9, 17, 0.97);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+
+.memoryViewer.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.viewerClose {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(246, 234, 216, 0.25);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #F6EAD8;
+
+    font-size: 28px;
+
+    font-weight: 200;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.viewerClose:hover {
+    background: rgba(201, 168, 106, 0.15);
+
+    transform: rotate(90deg);
+}
+
+
+.viewerContent {
+    max-width: 88vw;
+    max-height: 72vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.viewerContent img,
+.viewerContent video {
+    max-width: 88vw;
+    max-height: 72vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.65);
+}
+
+
+.viewerCaption {
+    max-width: 700px;
+
+    margin-top: 22px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    color: #D8CCBD;
+}
+
+
+.viewerControls {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.viewerArrow {
+    width: 45px;
+    height: 38px;
+
+    background: transparent;
+
+    color: #F6EAD8;
+
+    border: 1px solid rgba(246, 234, 216, 0.2);
+
+    border-radius: 3px;
+
+    font-size: 18px;
+}
+
+
+.viewerArrow:hover {
+    background: rgba(201, 168, 106, 0.15);
+
+    border-color: #C9A86A;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes homeAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes memoryAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.97)
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+#memoryArchive::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+#memoryArchive::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+#memoryArchive::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 106, 0.35);
+
+    border-radius: 10px;
+}
+
+
+#memoryArchive::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 168, 106, 0.65);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    #galleryHome {
+        padding: 25px;
+    }
+
+
+    .homeContent h1 {
+        font-size: 52px;
+    }
+
+
+    .homeDescription {
+        font-size: 16px;
+    }
+
+
+    #memoryReel {
+        padding: 20px;
+    }
+
+
+    .reelTopBar {
+        grid-template-columns: 1fr auto;
+
+        grid-template-areas:
+            "label counter"
+            "skip skip";
+
+        gap: 12px;
+    }
+
+
+    .reelLabel {
+        grid-area: label;
+    }
+
+
+    .reelCounter {
+        grid-area: counter;
+    }
+
+
+    .reelTopBar .smallButton {
+        grid-area: skip;
+
+        justify-self: start;
+    }
+
+
+    .reelContent {
+        padding: 15px 0;
+    }
+
+
+    .reelContent img,
+    .reelContent video {
+        max-width: 92vw;
+        max-height: 62vh;
+    }
+
+
+    .reelBottom {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        min-height: 130px;
+    }
+
+
+    .continueButton {
+        width: 100%;
+    }
+
+
+    .memoryGrid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+
+    #memoryArchive {
+        padding: 25px 18px 40px;
+    }
+
+
+    .archiveTopBar {
+        align-items: center;
+    }
+
+
+    .archiveTitle h2 {
+        font-size: 42px;
+    }
+
+
+    .memoryViewer {
+        padding: 60px 15px 25px;
+    }
+
+
+    .viewerContent img,
+    .viewerContent video {
+        max-width: 95vw;
+        max-height: 65vh;
+    }
+
+}
