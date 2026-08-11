@@ -172,15 +172,6 @@ morningTime.style.display = "none";
         await new Promise(resolve =>
             setTimeout(resolve, 500)
         );
-
-        morningTime.style.display = "";
-morningTime.classList.add("messageReveal");
-
-scrollToBottom();
-
-await new Promise(resolve =>
-    setTimeout(resolve, 1000)
-);
         
         await showTyping("right");
 
@@ -221,7 +212,14 @@ await new Promise(resolve =>
         );
 
         await showReel(messages[4]);
+morningTime.style.display = "";
+morningTime.classList.add("messageReveal");
 
+scrollToBottom();
+
+await new Promise(resolve =>
+    setTimeout(resolve, 1000)
+);
 
         // -------------------------------------------------
         // TIME BREAK
