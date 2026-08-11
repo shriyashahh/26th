@@ -344,9 +344,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             image.alt = "Memory";
 
-            if (memory.roation){
+            if (memory.rotation){
                 image.style.transform=
-                    'rotate(${memory.rotation}deg);
+                    `rotate(${memory.rotation}deg)`;
             }
         
 
@@ -450,9 +450,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 image.alt=
                     "Memory";
-                if (memory.roation){
+                if (memory.rotation){
                     image.style.transform=
-                        'rotate(${memory.rotation}deg)';
+                        `rotate(${memory.rotation}deg)`;
                 }
                 card.appendChild(image);
 
