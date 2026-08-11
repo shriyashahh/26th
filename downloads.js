@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
     // =====================================================
     // ELEMENTS
     // =====================================================
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const birthdayScreen =
         document.getElementById("birthdayScreen");
-
 
     const openFile =
         document.getElementById("openFile");
@@ -34,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("audioDot");
 
 
-
     // =====================================================
     // SCREEN SWITCHING
     // =====================================================
@@ -44,49 +41,44 @@ document.addEventListener("DOMContentLoaded", () => {
         document
             .querySelectorAll(".screen")
             .forEach(item => {
-
                 item.classList.remove("active");
-
             });
 
-
         screen.classList.add("active");
-
     }
 
 
-
     // =====================================================
-    // OPEN MY DOC
+    // OPEN MY DOCS
     // =====================================================
 
-    openFile.addEventListener("click", () => {
+    openFile.addEventListener("click", async () => {
 
         showScreen(videoScreen);
 
-
         funnyVideo.currentTime = 0;
 
-        funnyVideo.muted=false;
-        const playPromise =
-            funnyVideo.play();
+        // IMPORTANT:
+        // Video should play WITH SOUND
+        funnyVideo.muted = false;
+        funnyVideo.volume = 1;
 
+        try {
 
-        if (playPromise !== undefined) {
+            await funnyVideo.play();
 
-            playPromise.catch(() => {
+        } catch (error) {
 
-                // Browser prevented playback.
-                // User can use the video controls.
+            console.log(
+                "Video playback was blocked:",
+                error
+            );
 
-                funnyVideo.controls = true;
-
-            });
-
+            // Show controls if browser refuses playback
+            funnyVideo.controls = true;
         }
 
     });
-
 
 
     // =====================================================
@@ -97,43 +89,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         showScreen(birthdayScreen);
 
-
-        // Small delay makes the transition
-        // feel intentional rather than abrupt.
-
         setTimeout(() => {
 
             birthdayAudio.currentTime = 0;
 
+            birthdayAudio.play()
+                .then(() => {
 
-            const playPromise =
-                birthdayAudio.play();
+                    audioText.textContent =
+                        "Playing something for you...";
 
+                    audioDot.classList.add("playing");
 
-            if (playPromise !== undefined) {
+                })
+                .catch(() => {
 
-                playPromise
-                    .then(() => {
+                    audioText.textContent =
+                        "Tap REPLAY to play the birthday song.";
 
-                        audioText.textContent =
-                            "Playing something for you...";
-
-                        audioDot.classList.add("playing");
-
-                    })
-                    .catch(() => {
-
-                        audioText.textContent =
-                            "Tap REPLAY to play the birthday song.";
-
-                    });
-
-            }
+                });
 
         }, 900);
 
     });
-
 
 
     // =====================================================
@@ -176,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-
     // =====================================================
     // REPLAY AUDIO
     // =====================================================
@@ -188,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
         birthdayAudio.play();
 
     });
-
 
 
     // =====================================================
