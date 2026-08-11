@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         funnyVideo.currentTime = 0;
 
-
+        funnyVideo.muted=false;
         const playPromise =
             funnyVideo.play();
 
