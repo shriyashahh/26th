@@ -1,1 +1,741 @@
+/* =====================================================
+   RESET
+===================================================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+
+    background: #071321;
+
+    color: #F6EAD8;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    overflow: hidden;
+
+}
+
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.downloadsPage {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            #19385a 0%,
+            #102742 42%,
+            #071321 100%
+        );
+
+}
+
+
+
+/* =====================================================
+   GENERIC SCREEN
+===================================================== */
+
+.screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+
+}
+
+
+.screen.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#introScreen {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+.introContent {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    animation:
+        introAppear
+        1s ease
+        forwards;
+
+}
+
+
+.folderIcon {
+
+    font-size: 52px;
+
+    margin-bottom: 18px;
+
+    filter:
+        drop-shadow(
+            0 10px 25px
+            rgba(0, 0, 0, 0.4)
+        );
+
+}
+
+
+.fileLabel {
+
+    color: #C9A86A;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.introContent h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(48px, 7vw, 78px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 18px;
+
+}
+
+
+.introContent p {
+
+    color: #C7B8A4;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 17px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.openButton {
+
+    padding: 14px 24px;
+
+    border: 1px solid #C9A86A;
+
+    background: #C9A86A;
+
+    color: #101010;
+
+    border-radius: 3px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.openButton span {
+
+    margin-left: 10px;
+
+}
+
+
+.openButton:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #E0C68C;
+
+}
+
+
+
+/* =====================================================
+   VIDEO SCREEN
+===================================================== */
+
+#videoScreen {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+}
+
+
+.videoHeader {
+
+    position: absolute;
+
+    top: 28px;
+
+    left: 35px;
+    right: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #C9A86A;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.videoWrapper {
+
+    max-width: 80vw;
+
+    max-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.videoWrapper video {
+
+    display: block;
+
+    max-width: 80vw;
+
+    max-height: 70vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    background: #000;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0, 0, 0, 0.6);
+
+}
+
+
+.videoHint {
+
+    margin-top: 20px;
+
+    color: #C7B8A4;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+}
+
+
+
+/* =====================================================
+   BIRTHDAY SCREEN
+===================================================== */
+
+#birthdayScreen {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+}
+
+
+.birthdayContent {
+
+    width: min(720px, 90vw);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    animation:
+        birthdayAppear
+        1.4s ease
+        forwards;
+
+}
+
+
+.smallLabel {
+
+    color: #C9A86A;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.goldLine {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #C9A86A;
+
+    margin-bottom: 35px;
+
+}
+
+
+.birthdayContent h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(45px, 6vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    color: #F6EAD8;
+
+    margin-bottom: 32px;
+
+}
+
+
+.birthdayMessage {
+
+    max-width: 620px;
+
+    color: #D8CCBD;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+}
+
+
+.birthdayWish {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.birthdayWish span {
+
+    color: #E0C68C;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+}
+
+
+.birthdayWish small {
+
+    color: #C7B8A4;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+/* =====================================================
+   AUDIO STATUS
+===================================================== */
+
+.audioStatus {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 30px;
+
+    color: #8F9BA8;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.audioDot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #555;
+
+}
+
+
+.audioDot.playing {
+
+    background: #C9A86A;
+
+    box-shadow:
+        0 0 12px
+        rgba(201, 168, 106, 0.8);
+
+    animation:
+        pulse
+        1.2s
+        infinite;
+
+}
+
+
+
+/* =====================================================
+   REPLAY
+===================================================== */
+
+.replayButton {
+
+    margin-top: 22px;
+
+    padding: 9px 16px;
+
+    background: transparent;
+
+    color: #C7B8A4;
+
+    border: 1px solid
+        rgba(246, 234, 216, 0.2);
+
+    border-radius: 3px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.25s ease;
+
+}
+
+
+.replayButton:hover {
+
+    color: #F6EAD8;
+
+    border-color: #C9A86A;
+
+    background:
+        rgba(201, 168, 106, 0.08);
+
+}
+
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes introAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes birthdayAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+
+        opacity: 0.4;
+
+        transform: scale(0.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.25);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    #introScreen {
+
+        padding: 25px;
+
+    }
+
+
+    .introContent h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .introContent p {
+
+        font-size: 15px;
+
+    }
+
+
+    #videoScreen {
+
+        padding: 20px;
+
+    }
+
+
+    .videoHeader {
+
+        left: 20px;
+        right: 20px;
+
+        top: 20px;
+
+    }
+
+
+    .videoWrapper video {
+
+        max-width: 92vw;
+
+        max-height: 65vh;
+
+    }
+
+
+    #birthdayScreen {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .birthdayContent {
+
+        width: 100%;
+
+    }
+
+
+    .birthdayContent h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .birthdayMessage {
+
+        font-size: 15px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .birthdayWish span {
+
+        font-size: 21px;
+
+    }
+
+}
