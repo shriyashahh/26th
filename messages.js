@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const chat = document.querySelector(".chat");
 
     const messages = Array.from(
-        chat.querySelectorAll(".message, .reel, .center")
+        chat.querySelectorAll(".message, .reel")
     );
 
     const finalMessage = chat.querySelector(".final");
