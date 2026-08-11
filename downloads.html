@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Docs</title>
+
+    <link
+        rel="stylesheet"
+        href="downloads.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="downloadsPage">
+
+
+        <!-- =========================================
+             INTRO
+        ========================================== -->
+
+        <section
+            id="introScreen"
+            class="screen active"
+        >
+
+            <div class="introContent">
+
+                <div class="folderIcon">
+                    📁
+                </div>
+
+                <div class="fileLabel">
+                    MY DOCS
+                </div>
+
+                <h1>
+                    One last file.
+                </h1>
+
+                <p>
+                    This one wasn't meant to be archived.
+                </p>
+
+                <button
+                    id="openFile"
+                    class="openButton"
+                >
+                    OPEN FILE
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             FUNNY MINION VIDEO
+        ========================================== -->
+
+        <section
+            id="videoScreen"
+            class="screen"
+        >
+
+            <div class="videoHeader">
+
+                <span>
+                    PERSONAL FILE
+                </span>
+
+                <span>
+                    01
+                </span>
+
+            </div>
+
+
+            <div class="videoWrapper">
+
+                <video
+                    id="funnyVideo"
+                    playsinline
+                    preload="auto"
+                >
+
+                    <source
+                        src="assets/downloads/minion funny video.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+            </div>
+
+
+            <p class="videoHint">
+                Apparently this needed to exist.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================================
+             BIRTHDAY MESSAGE
+        ========================================== -->
+
+        <section
+            id="birthdayScreen"
+            class="screen"
+        >
+
+            <div class="birthdayContent">
+
+                <div class="smallLabel">
+                    02 · FOR YOU
+                </div>
+
+
+                <div class="goldLine"></div>
+
+
+                <h1>
+                    And then,<br>
+                    there is this.
+                </h1>
+
+
+                <p class="birthdayMessage">
+
+                    Somewhere between all the stupid jokes,
+                    random food plans, questionable decisions,
+                    and completely unnecessary conversations...
+
+                    <br><br>
+
+                    you became someone whose presence
+                    quietly became a part of my life.
+
+                    <br><br>
+
+                    So here's to another year of you —
+                    more adventures, more ridiculous memories,
+                    more food, and hopefully slightly fewer
+                    questionable decisions.
+
+                </p>
+
+
+                <div class="birthdayWish">
+
+                    <span>Happy Birthday, Siddhesh.</span>
+
+                    <small>
+                        I'm really glad I got to know you.
+                    </small>
+
+                </div>
+
+
+                <!-- AUDIO -->
+
+                <audio
+                    id="birthdayAudio"
+                    preload="auto"
+                >
+
+                    <source
+                        src="assets/downloads/minions happy birthday.mpeg"
+                        type="audio/mpeg"
+                    >
+
+                </audio>
+
+
+                <div class="audioStatus">
+
+                    <span
+                        id="audioDot"
+                        class="audioDot"
+                    ></span>
+
+                    <span id="audioText">
+                        Playing something for you...
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="replayAudio"
+                    class="replayButton"
+                >
+
+                    ↻ REPLAY
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="downloads.js"></script>
+
+</body>
+
+</html>
