@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "image",
             src: "assets/gallery/sid trek.jpeg",
             caption:
-                "One more adventure added to the archive."
+                "Hopefully, I'll join you sooon."
         },
 
         {
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             type: "image",
-            src: "assets/gallery/trio frankie.jpeg",
+            src: "assets/gallery/trio frankiee.jpeg",
             caption:
                 "Three people. One more food mission."
         },
@@ -163,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
             src: "assets/gallery/trio restaurant.jpeg",
             caption:
                 "The trio."
+            rotation:-90
         },
 
         {
@@ -170,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             src: "assets/gallery/trio traditional.jpeg",
             caption:
                 "Another trio memory."
+            rotation:-90
         },
 
         {
@@ -221,21 +223,21 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "video",
             src: "assets/gallery/sid bike stunt.mp4",
             caption:
-                "Sid, please keep both hands on the handle. This is the official archive warning."
+                "Siddhesh, please keep both hands on the handle. This is the official archive warning."
         },
 
         {
             type: "video",
             src: "assets/gallery/sid cooking.mp4",
             caption:
-                "Sid making chai. A surprisingly serious operation."
+                "Siddhesh making chai. A surprisingly serious operation."
         },
 
         {
             type: "video",
             src: "assets/gallery/sid gola surprised.mp4",
             caption:
-                "The beer ice lolly was apparently much better than expected."
+                "Maa Kasam. The beer ice lolly was apparently much better than expected."
         },
 
         {
@@ -247,9 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             type: "video",
-            src: "assets/gallery/trio south indian thali restaurant.mp4",
+            src: "assets/gallery/south indian thali restaurant.mp4",
             caption:
-                "The South Indian thali has officially entered the archive."
+                "The South Indian thali has officially entered the archive. Best unexpected thali everrrr"
         }
 
     ];
